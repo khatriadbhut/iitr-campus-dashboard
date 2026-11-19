@@ -1,0 +1,491 @@
+.todo-page {
+    background: var(--brand-purple-pale);
+    min-height: 100%;
+    padding-bottom: 100px;
+}
+
+.todo-header-content h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0;
+    color: var(--brand-black);
+    letter-spacing: -0.03em;
+}
+
+.todo-subtitle {
+    font-size: 0.85rem;
+    color: var(--grey-500);
+    margin-top: 2px;
+}
+
+.todo-stat-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    padding: 6px 12px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-purple);
+    border: 1px solid var(--grey-100);
+}
+
+.todo-content {
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.todo-input-card {
+    display: flex;
+    gap: 12px;
+    padding: 8px 8px 8px 16px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border-color: var(--grey-200);
+    transition: all 0.2s ease;
+}
+
+.todo-input-card:focus-within {
+    border-color: var(--brand-purple);
+    box-shadow: 0 4px 20px rgba(113, 51, 100, 0.1);
+}
+
+.todo-input-card input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: var(--brand-black);
+    background: transparent;
+    font-family: inherit;
+}
+
+.todo-input-card input::placeholder {
+    color: var(--grey-400);
+}
+
+.todo-add-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--brand-purple);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.todo-add-btn:hover:not(:disabled) {
+    background: var(--brand-purple-dark);
+    transform: scale(1.05);
+}
+
+.todo-add-btn:disabled {
+    background: var(--grey-200);
+    cursor: not-allowed;
+}
+
+.todo-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    transition: all 0.2s ease;
+    border: 1px solid var(--grey-100);
+    overflow: hidden;
+    margin-bottom: 8px;
+    background: white;
+}
+
+.todo-item-wrapper:hover {
+    border-color: var(--grey-200);
+    transform: translateY(-1px);
+}
+
+.todo-item-wrapper.expanded {
+    border-color: var(--brand-purple);
+    box-shadow: 0 4px 16px rgba(113, 51, 100, 0.08);
+    transform: none;
+    margin: 12px 0;
+}
+
+.todo-item-wrapper.completed {
+    background: var(--grey-50);
+}
+
+.todo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.todo-check-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-300);
+    transition: color 0.15s ease;
+    margin-top: 2px;
+}
+
+.todo-item-wrapper.completed .todo-check-btn {
+    color: var(--brand-purple);
+}
+
+.todo-check-btn:hover {
+    color: var(--brand-purple);
+}
+
+.todo-text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.todo-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--brand-black);
+    line-height: 1.4;
+}
+
+.todo-item-wrapper.completed .todo-text {
+    text-decoration: line-through;
+    color: var(--grey-400);
+}
+
+.todo-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.todo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--grey-500);
+    background: var(--grey-100);
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.todo-badge.overdue {
+    color: #c62828;
+    background: #ffebee;
+}
+
+.todo-badge.linked-event {
+    color: var(--brand-purple);
+    background: var(--brand-purple-pale);
+    cursor: pointer;
+}
+
+.todo-badge.linked-event:hover {
+    background: rgba(113, 51, 100, 0.15);
+}
+
+/* Was `color: var(--grey-200)` (#e2dde0) on white — about 1.2:1, well under the 3:1 minimum for a
+   non-text control. It was not subtle, it was invisible: users reported the task could not be
+   deleted because they could not find the button. It also sat bare next to the filled pill badges on
+   the same row, so even when spotted it did not read as a control.
+
+   Now the same pill treatment as .todo-badge — identical background, radius and icon colour — so the
+   row's controls look like one set. Red is kept for hover/focus, where it signals intent at the
+   moment of acting rather than shouting destructive at rest. */
+.todo-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--grey-100);
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    color: var(--grey-500);
+    transition: all 0.15s ease;
+    border-radius: 6px;
+}
+
+.todo-delete-btn:hover,
+.todo-delete-btn:focus-visible {
+    color: var(--red);
+    background: #fef2f2;
+}
+
+/* Touch has no hover, so the affordance has to hold up without it — the resting state above is
+   already the readable one, and this only firms up the press. */
+.todo-delete-btn:active {
+    transform: scale(0.94);
+}
+
+.todo-editor {
+    padding: 0 16px 16px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid var(--grey-100);
+    padding-top: 12px;
+    margin-top: -4px;
+}
+
+.todo-editor-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.todo-editor-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--grey-500);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.todo-editor-row {
+    display: flex;
+    gap: 12px;
+}
+
+.todo-editor-input {
+    border: 1px solid var(--grey-200);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    font-family: inherit;
+    color: var(--brand-black);
+    transition: border-color 0.2s ease;
+    background: white;
+}
+
+.todo-editor-input:focus {
+    outline: none;
+    border-color: var(--brand-purple);
+}
+
+.todo-editor-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.todo-editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.todo-done-btn {
+    background: var(--brand-purple);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.todo-done-btn:hover:not(:disabled) {
+    background: var(--brand-purple-dark);
+}
+
+.todo-done-btn:disabled {
+    background: var(--grey-300);
+    cursor: not-allowed;
+}
+
+.todo-cancel-btn {
+    background: transparent;
+    color: var(--grey-500);
+    border: 1px solid var(--grey-200);
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.todo-cancel-btn:hover {
+    background: var(--grey-100);
+    color: var(--brand-black);
+}
+
+.linked-event-card {
+    border: 1px solid var(--grey-200);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background: var(--grey-50);
+}
+
+.linked-event-card strong {
+    color: var(--brand-black);
+}
+
+.linked-event-card span {
+    color: var(--grey-500);
+}
+
+.todo-completed-section {
+    margin-top: 24px;
+}
+
+.todo-completed-header {
+    border-bottom: 1px solid var(--grey-200);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+}
+
+.todo-completed-header h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--grey-500);
+    font-weight: 600;
+}
+
+
+.todo-empty {
+    padding: 48px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--grey-400);
+}
+
+.todo-empty-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--grey-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    color: var(--grey-300);
+}
+
+.todo-empty h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--grey-600);
+    font-weight: 800;
+}
+
+.todo-empty p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.todo-feed-toggle {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px;
+    margin-top: 12px;
+}
+
+.feed-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--grey-200);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    transition: all 0.2s ease;
+}
+
+.feed-toggle-label:hover {
+    border-color: var(--brand-purple);
+}
+
+.feed-toggle-label input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--brand-purple);
+    cursor: pointer;
+}
+
+.feed-toggle-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brand-black);
+    flex: 1;
+}
+
+.feed-toggle-badge {
+    background: #FFD700;
+    color: #4a1d3f;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.todo-item {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.todo-loading {
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--grey-500);
+    font-size: 0.88rem;
+}
+
+.todo-loading p {
+    margin: 0;
+}
+
+.todo-error-msg {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}

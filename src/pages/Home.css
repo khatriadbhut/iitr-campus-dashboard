@@ -1,0 +1,525 @@
+.home-page {
+    background: var(--brand-purple-pale);
+    min-height: 100%;
+}
+
+/* Notification dot on bell */
+.header-bell-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* Search Bar */
+.home-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 16px 0;
+    padding: 10px 14px;
+    background: white;
+    border-radius: 12px;
+    border: 1.5px solid var(--grey-200);
+    margin-top: 12px;
+    transition: border-color 0.2s;
+}
+
+.home-search-bar:focus-within {
+    border-color: var(--brand-purple);
+}
+
+.search-inline-icon {
+    color: var(--grey-400);
+    flex-shrink: 0;
+}
+
+.home-search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    color: var(--brand-black);
+    background: transparent;
+    font-family: 'Roboto', sans-serif;
+}
+
+.home-search-bar input::placeholder {
+    color: var(--grey-400);
+}
+
+.home-mode-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.home-mode-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.home-mode-btn {
+    flex-shrink: 0;
+    border-radius: 999px;
+    border: 1.5px solid var(--grey-200);
+    background: white;
+    color: var(--grey-600);
+    padding: 7px 14px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+
+.home-mode-btn.active {
+    background: var(--brand-purple);
+    border-color: var(--brand-purple);
+    color: white;
+}
+
+/* Category Chips */
+.home-chips-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.home-chips-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.home-chip {
+    flex-shrink: 0;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border: 1.5px solid var(--grey-200);
+    background: white;
+    color: var(--grey-600);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+    font-family: 'Roboto', sans-serif;
+}
+
+.home-chip.active {
+    background: var(--brand-purple);
+    color: white;
+    border-color: var(--brand-purple);
+}
+
+.home-chip:hover:not(.active) {
+    border-color: var(--brand-purple);
+    color: var(--brand-purple);
+}
+
+.home-chip-placeholder {
+    font-size: 0.82rem;
+    color: var(--grey-500);
+    white-space: nowrap;
+}
+
+/* Feed of cards */
+.home-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 4px 16px 24px;
+}
+
+@media (min-width: 768px) {
+    .home-feed {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+        padding: 16px 32px 32px;
+    }
+}
+
+/* Loading state */
+.home-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 60px 0;
+    color: var(--grey-500);
+    font-size: 0.9rem;
+}
+
+.home-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--grey-200);
+    border-top-color: var(--brand-purple);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty state */
+.home-empty {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--grey-500);
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--brand-purple);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.home-loading-more,
+.home-end-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 0 8px;
+    color: var(--grey-500);
+    font-size: 0.85rem;
+}
+
+.home-scroll-sentinel {
+    width: 100%;
+    height: 1px;
+}
+
+.home-backend-slow-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 12px 16px;
+    max-width: 340px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #92400e;
+    text-align: left;
+    animation: home-fade-up 0.4s ease;
+}
+
+@keyframes home-fade-up {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tab + date-dropdown toolbar — one row, reuses the app's pill language */
+.home-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px 0;
+    flex-wrap: wrap;
+}
+.home-tabs {
+    display: flex;
+    gap: 6px;
+}
+.home-date-picker {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1.5px solid var(--grey-200);
+    border-radius: 999px;
+    padding: 5px 10px 5px 12px;
+    background: white;
+    color: var(--grey-400);
+}
+.home-date-picker select {
+    border: none;
+    background: transparent;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--grey-600);
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Notices list — matches the app's card + chip aesthetic and tokens */
+.home-notices {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 4px 16px 24px;
+}
+.home-notice-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.home-notice-filter::-webkit-scrollbar {
+    display: none;
+}
+.home-notice-fbtn {
+    flex-shrink: 0;
+    border-radius: 999px;
+    border: 1.5px solid var(--grey-200);
+    background: white;
+    color: var(--grey-600);
+    padding: 6px 14px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+.home-notice-fbtn.active {
+    background: var(--brand-purple);
+    border-color: var(--brand-purple);
+    color: white;
+}
+.home-notice-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* A labelled rule across the row. This replaced a filled bar, which was heavier than it needed to be
+   — the earlier rule read better; what was actually wrong with it was CONTRAST, not the shape. So the
+   shape is back and the greys are darker: the label sits at --grey-600 rather than --grey-500, the
+   line at --grey-300 rather than --grey-200, and the count carries a border so it reads as a chip
+   rather than a smudge. */
+.home-notice-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--grey-600);
+    margin: 26px 0 12px;
+}
+.home-notice-group:first-child .home-notice-section-title { margin-top: 4px; }
+
+/* The rule fills whatever the label leaves. */
+.home-notice-section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--grey-300);
+    border-radius: 2px;
+}
+
+.home-notice-section-count {
+    font-weight: 800;
+    font-size: 0.7rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: white;
+    color: var(--grey-600);
+    border: 1.5px solid var(--grey-300);
+}
+
+/* The pinned band carries the app's plum, plus a dot, so it is the one that catches the eye. */
+.home-notice-section-title.important { color: var(--brand-purple); }
+.home-notice-section-title.important::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--brand-purple);
+    flex-shrink: 0;
+}
+.home-notice-section-title.important::after { background: var(--brand-purple); opacity: 0.45; }
+.home-notice-section-title.important .home-notice-section-count {
+    color: var(--brand-purple);
+    border-color: #71336455;
+}
+
+.home-notice-card {
+    display: block;
+    text-decoration: none;
+    background: white;
+    border: 1.5px solid var(--grey-200);
+    border-radius: 14px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color 0.18s ease;
+}
+.home-notice-card:hover {
+    border-color: var(--brand-purple);
+}
+.home-notice-tagrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+.home-notice-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+.home-notice-dl {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.home-notice-dl.dl-grey  { color: var(--grey-600); background: var(--grey-100); }
+.home-notice-dl.dl-amber { color: #b45309; background: #fff7ed; }
+.home-notice-dl.dl-red   { color: #c62828; background: #fef2f2; }
+.home-notice-dl.dl-past  { color: var(--grey-500); background: var(--grey-100); }
+.home-notice-snippet {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--grey-600);
+    margin: 6px 0 0;
+    overflow-wrap: break-word;
+}
+.home-notice-more { color: var(--brand-purple); font-weight: 700; }
+.home-notice-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid;
+}
+.k-scholarship { color: #8B6914; border-color: #8B691455; background: #8B69140f; }
+.k-fee        { color: #c62828; border-color: #c6282855; background: #c628280f; }
+.k-reg        { color: #6d28d9; border-color: #6d28d955; background: #6d28d90f; }
+.k-facility   { color: #d84315; border-color: #d8431555; background: #d843150f; }
+.k-resource   { color: #2e7d32; border-color: #2e7d3255; background: #2e7d320f; }
+.k-recruit    { color: #1565c0; border-color: #1565c055; background: #1565c00f; }
+.k-comp       { color: #00838f; border-color: #00838f55; background: #00838f0f; }
+.k-deadline   { color: #c62828; border-color: #c6282855; background: #c628280f; }
+.k-notice     { color: var(--grey-600); border-color: var(--grey-200); background: transparent; }
+/* EXTERNAL sits beside the kind chip, so it must NOT compete with it for attention — it qualifies
+   the kind ("a competition, run by someone else") rather than announcing a category of its own.
+   Hence the muted grey-slate and the dashed border: legible at a glance, but the eye still lands on
+   the kind chip and the deadline first. */
+.k-external   { color: #4a5568; border-color: #4a5568; border-style: dashed; background: #4a55680d; }
+/* Right-hand cluster of the tag row: deadline chip, then the two action buttons. Kept in one flex
+   group so the actions never wrap under the title on a narrow phone. */
+.home-notice-tagrow-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+.notice-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* Same gold as the event card's PERSONAL/TODO badge — the state must read identically on both. */
+.k-todo       { color: #8B6914; border-color: #8B6914; background: #8B69141a; }
+
+/* A deadline the app looked up in the academic calendar rather than one the email stated.
+   The mark is the ICON (calendar, not alarm clock) plus the tooltip — not a different chip shape. A
+   dashed italic version was tried first and read as a BROKEN chip rather than an inferred one: the
+   date is not less certain, it came from the official PDF, it simply was not in the mail. Anything
+   that looks damaged undersells it. */
+.home-notice-dl.dl-derived {
+    letter-spacing: 0.1px;
+}
+
+.home-notice-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--brand-black);
+    line-height: 1.35;
+    font-family: 'Roboto', sans-serif;
+    overflow-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.home-notice-badge {
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--brand-purple);
+    background: var(--brand-purple-pale);
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+.home-notice-body {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: var(--grey-600);
+    margin: 6px 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.home-notice-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: var(--grey-500);
+}
+.home-notice-source {
+    font-weight: 700;
+    color: var(--grey-600);
+}
+.home-notice-deadline {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--red);
+    margin-top: 8px;
+}
+.home-notice-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-purple);
+    margin-top: 6px;
+}
+.home-notice-empty {
+    text-align: center;
+    color: var(--grey-500);
+    font-size: 0.9rem;
+    padding: 48px 0;
+}
+@media (min-width: 768px) {
+    .home-notices { padding: 16px 32px 32px; }
+}

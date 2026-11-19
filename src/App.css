@@ -1,0 +1,93 @@
+/* App Shell Layout */
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    background: var(--brand-purple-pale);
+}
+
+.app-main {
+    flex: 1;
+    /* Reserve space for fixed bottom nav */
+    padding-bottom: 64px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .app-shell {
+        flex-direction: row;
+        max-width: 1200px;
+        align-items: flex-start;
+    }
+    
+    .app-main {
+        padding-bottom: 0;
+        background: white;
+        min-height: 100vh;
+        box-shadow: 0 0 20px rgba(0,0,0,0.03);
+        border-left: 1px solid var(--grey-100);
+        border-right: 1px solid var(--grey-100);
+        /* In the desktop flex row, flex:1 sizes the column — width:100% (needed on
+           mobile) would force it full-width and overflow past the sidebar. */
+        width: auto;
+        min-width: 0;
+    }
+}
+
+/* Global utility for centering states */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Page Header used across pages */
+.page-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px 12px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--grey-100);
+}
+
+.page-header-bar h1 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--brand-black);
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.page-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-icon-btn {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--grey-50);
+    border: none;
+    cursor: pointer;
+    color: var(--grey-700);
+    transition: background 0.2s, color 0.2s;
+}
+
+.header-icon-btn:hover {
+    background: var(--brand-purple-pale);
+    color: var(--brand-purple);
+}

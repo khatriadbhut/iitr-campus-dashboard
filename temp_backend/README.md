@@ -1,0 +1,362 @@
+# Event Planner Backend
+
+Backend API for the Event Planner project.
+
+## Requirements
+- Node.js 18+ (recommended)
+- PostgreSQL database (local or hosted)
+
+## Setup
+1. Install dependencies:
+   
+   ```bash
+   npm install
+   ```
+
+2. Create a `.env` file in the backend folder with the following variables:
+
+   ```env
+   DATABASE_URL=postgresql://<user>:<password>@<host>/<db>?sslmode=require
+
+   # Channel I OAuth
+   authoriseURL=https://channeli.in/oauth/authorise/
+   client_id=<your_client_id>
+   redirectURL=http://127.0.0.1:8081/oauth/token/
+   token_URL=https://channeli.in/open_auth/token/
+   client_secret_id=<your_client_secret>
+   get_user_data_url=https://channeli.in/open_auth/get_user_data/
+
+   JWT_SECRET=<your_jwt_secret>
+
+   # Optional (set to true to reset and recreate schema on startup)
+   RESET_DB=false
+
+   ```
+
+   **Permission ids are no longer configured here.** The six `*_PERMISSION_ID` vars this block used
+   to list are not read any more — `utils/permissions.js` resolves every permission by NAME from the
+   database once at boot. Ids come from insertion order, so a rebuilt database numbers them
+   differently and an env var pinned to the old number silently 403s an admin who genuinely holds
+   the right. Migration `20260805000000-seed-admin-permissions` guarantees the rows exist.
+
+   Setting them now does nothing. The block was also wrong twice over, which is a fair argument for
+   deleting it rather than correcting it: it listed `MANAGE_CLUBS_PERMISSION_ID=7` when production
+   has `manage_clubs` at **6**, and `ADMIN_PERMISSIONS_MANAGE_ID=6` for a permission that has never
+   existed — there are exactly six rows and none of them is `admin_permissions_manage`.
+
+3. Start the server:
+
+   ```bash
+   npm start
+   ```
+
+   For hot reload in development:
+   ```bash
+   npm run dev
+   ```
+
+## Notes
+- The schema is initialized automatically on startup.
+- Set `RESET_DB=true` to drop and recreate all tables (use with care).
+- The API listens on `PORT` from `.env` or defaults to `8081`.
+
+## Middlewares
+
+**Auth**
+- `userLoggedIn` checks for `auth_token` cookie and returns 401 if missing.
+- `userData` verifies JWT, attaches decoded payload to `req.user` (includes `user_id`).
+
+**Club Admin**
+- `checkClubAdmin` ensures user is admin of at least one club; sets `req.club_admin.club_ids`.
+- `checkClubAdminForClub` ensures user is admin of a specific club (`club_id` from params/body).
+
+**Permissions (admin_permission_alloted based)**
+- `checkEventPermission` allows if user has event CRUD permission or is club admin of the event's club.
+- `checkLocationPermission` allows if user has location CRUD permission or is a club admin.
+- `checkEventCategoryPermission` allows if user has event category CRUD permission or is a club admin.
+- `checkManageAdminsPermission` allows only if user has manage-admins permission.
+- `checkManageClubAdminsPermission` allows if user has manage-club-admins permission or is club admin for the target club.
+- `checkManageClub` allows only if user has manage-clubs permission (checked in `admin_permission_alloted`).
+- `checkAdminPermissionsManage` allows only if user has admin-permissions-manage permission.
+
+**Permission IDs**
+- IDs are read from env vars (see Setup). Defaults are used if not set.
+
+## Routes
+
+**/oauth**
+- `GET /login` - Initiates OAuth flow via Channel I
+- `GET /token` - Completes OAuth authentication and creates JWT with enriched claims
+- `GET /user` - Returns user data with `authContext` containing:
+   - `is_admin` (boolean)
+   - `permission_names` (array of admin permission names)
+   - `club_admin_club_ids` (array of club IDs where user can manage events)
+   - `preferred_clubs`, `not_preferred_clubs`
+   - `preferred_categories`, `not_preferred_categories`
+   - Frontend checks should be derived from `permission_names` and these arrays
+
+**/clubs**
+- `GET /` - Get all clubs (public)
+- `GET /:id` - Get specific club (public)
+- `POST /create` - Create new club (requires manage-clubs permission)
+- `PATCH /update/:id` - Update club (requires manage-clubs permission)
+- `DELETE /delete/:id` - Delete club (requires manage-clubs permission)
+
+**/events**
+- `GET /all` - Paginated list of current/future events (`?page=1&limit=10`, default limit 10, max 50), ordered by `tentative_start_time` ascending.
+   - Each event includes `club_id`, `club_name`, `location_id`, `location_name`, `location_description`, `category_ids`, and `categories`.
+- `GET /:eventId`
+- `GET /clubs/preferred` - Paginated (`?page=1&limit=10`, default limit 10)
+- `GET /clubs/not-preferred` - Paginated (`?page=1&limit=10`, default limit 10)
+- `GET /categories/preferred` - Paginated (`?page=1&limit=10`, default limit 10)
+- `GET /categories/not-preferred` - Paginated (`?page=1&limit=10`, default limit 10)
+- `POST /add`
+- `PATCH /:eventId`
+- `DELETE /:eventId`
+
+**/user**
+- `PATCH /preferences` - Updates preferred/not-preferred clubs/categories and refreshes JWT cookie with updated preference claims.
+
+**/locations**
+- `GET /all`
+- `GET /:locationId`
+- `POST /add`
+- `PATCH /:locationId`
+- `DELETE /:locationId`
+
+**/event-categories**
+- `GET /all`
+- `GET /:categoryId`
+- `POST /add`
+- `PATCH /:categoryId`
+- `DELETE /:categoryId`
+
+**/admins**
+- `GET /all` - Get all admins with their permissions (requires manage-admins permission)
+- `GET /:userId` - Get specific admin with permissions (requires manage-admins permission)
+- `POST /add` - Add a new admin (requires manage-admins permission). Accepts `enrolment_number` (preferred) or `user_id`, along with `permission_ids`.
+- `PATCH /:userId` - Update admin permissions (requires manage-admins permission)
+- `DELETE /:userId` - Remove admin (requires manage-admins permission)
+
+*Note: Admin status is derived from JWT `permission_names` and returned in `/oauth/user` response as `authContext.is_admin`.*
+
+**/club-admins**
+- `GET /club/:clubId` - Returns admins for a club with `user_id`, `full_name`, `email`, `enrolment_number`
+- `GET /club/:clubId/:userId`
+- `POST /club/:clubId/add` - Add club admin using `enrolment_number` (preferred) or `user_id`
+- `DELETE /club/:clubId/:userId`
+
+**/admin-permissions**
+- `GET /all`
+- `GET /:permissionId`
+- `PATCH /:permissionId`
+- `DELETE /:permissionId`
+
+## JWT Claims
+
+JWT token includes the following claims:
+- `user_id` - User's unique ID
+- `enrolmentNumber` - Enrollment number
+- `branch` - Student branch
+- `currentYear` - Academic year
+- `displayPicture` - Profile picture URL
+- `permission_names` - Array of admin permission names user has (e.g., ["event_crud", "manage_admins"])
+- `club_admin_club_ids` - Array of club IDs where user is admin (e.g., [1, 3, 5])
+- `preferred_clubs`, `not_preferred_clubs`
+- `preferred_categories`, `not_preferred_categories`
+
+**Note:** Permission and club-admin mappings are embedded in JWT at login time. Changes to admin permissions require user re-login to reflect in token. Preference changes are reflected immediately after `PATCH /user/preferences` because that route re-issues the auth cookie.
+
+## Database Schema
+
+**user**
+- `user_id` (PK), `full_name`, `email`, `phone_number`, `display_picture`
+- `enrolment_number`, `branch`, `current_year`, `branch_department_name`
+- `created_at`, `updated_at`
+
+**club**
+- `id` (PK), `name`, `email`, `description`, `logo_url`
+
+**club_admin**
+- `club_id` (FK -> club.id), `user_id` (FK -> user.user_id)
+- Composite PK (`club_id`, `user_id`)
+
+**location**
+- `id` (PK), `name`, `location_url`, `latitude`, `longitude`
+- `description`, `images` (JSONB)
+
+**event**
+- `id` (PK), `name`, `club_id` (FK -> club.id)
+- `location_id` (FK -> location.id), `tentative_start_time`, `duration_minutes`
+- `actual_start_time`, `description`
+- Exclusion constraint prevents overlapping events at the same location
+
+**event_category**
+- `id` (PK), `name`
+
+**event_category_alloted**
+- `event_id` (FK -> event.id), `event_category_id` (FK -> event_category.id)
+- Composite PK (`event_id`, `event_category_id`)
+
+**event_update**
+- `id` (PK), `event_id` (FK -> event.id), `update`
+
+**reminder**
+- `event_id` (FK -> event.id), `user_id` (FK -> user.user_id), `reminder_time`
+- Composite PK (`event_id`, `user_id`)
+
+**user_preferred_club**
+- `club_id` (FK -> club.id), `user_id` (FK -> user.user_id)
+- Composite PK (`club_id`, `user_id`)
+
+**user_not_preferred_club**
+- `club_id` (FK -> club.id), `user_id` (FK -> user.user_id)
+- Composite PK (`club_id`, `user_id`)
+
+**user_preferred_category**
+- `event_category_id` (FK -> event_category.id), `user_id` (FK -> user.user_id)
+- Composite PK (`event_category_id`, `user_id`)
+
+**user_not_preferred_category**
+- `event_category_id` (FK -> event_category.id), `user_id` (FK -> user.user_id)
+- Composite PK (`event_category_id`, `user_id`)
+
+**admin_permission**
+- `id` (PK), `name`
+
+**admin_permission_alloted**
+- `admin_permission_id` (FK -> admin_permission.id), `user_id` (FK -> user.user_id)
+- Composite PK (`admin_permission_id`, `user_id`)
+
+## ER Diagram
+
+```mermaid
+erDiagram
+   user {
+      BIGINT user_id PK
+      VARCHAR full_name
+      VARCHAR email
+      VARCHAR phone_number
+      TEXT display_picture
+      VARCHAR enrolment_number
+      VARCHAR branch
+      INTEGER current_year
+      VARCHAR branch_department_name
+      TIMESTAMP created_at
+      TIMESTAMP updated_at
+   }
+
+   club {
+      SERIAL id PK
+      TEXT name
+      TEXT email
+      TEXT description
+      TEXT logo_url
+   }
+
+   club_admin {
+      BIGINT club_id PK, FK
+      BIGINT user_id PK, FK
+   }
+
+   location {
+      SERIAL id PK
+      TEXT name
+      TEXT location_url
+      DOUBLE latitude
+      DOUBLE longitude
+      TEXT description
+      JSONB images
+   }
+
+   event {
+      SERIAL id PK
+      TEXT name
+      BIGINT club_id FK
+      INTEGER location_id FK
+      TIMESTAMP tentative_start_time
+      INTEGER duration_minutes
+      TIMESTAMP actual_start_time
+      TEXT description
+   }
+
+   event_category {
+      SERIAL id PK
+      TEXT name
+   }
+
+   event_category_alloted {
+      INTEGER event_id PK, FK
+      INTEGER event_category_id PK, FK
+   }
+
+   event_update {
+      SERIAL id PK
+      INTEGER event_id FK
+      TEXT update
+   }
+
+   reminder {
+      INTEGER event_id PK, FK
+      BIGINT user_id PK, FK
+      TIMESTAMP reminder_time
+   }
+
+   user_preferred_club {
+      BIGINT club_id PK, FK
+      BIGINT user_id PK, FK
+   }
+
+   user_not_preferred_club {
+      BIGINT club_id PK, FK
+      BIGINT user_id PK, FK
+   }
+
+   user_preferred_category {
+      INTEGER event_category_id PK, FK
+      BIGINT user_id PK, FK
+   }
+
+   user_not_preferred_category {
+      INTEGER event_category_id PK, FK
+      BIGINT user_id PK, FK
+   }
+
+   admin_permission {
+      SERIAL id PK
+      TEXT name
+   }
+
+   admin_permission_alloted {
+      INTEGER admin_permission_id PK, FK
+      BIGINT user_id PK, FK
+   }
+
+   user ||--o{ club_admin : has
+   club ||--o{ club_admin : has
+
+   club ||--o{ event : hosts
+   location ||--o{ event : hosts
+
+   event ||--o{ event_category_alloted : has
+   event_category ||--o{ event_category_alloted : assigns
+
+   event ||--o{ event_update : updates
+   event ||--o{ reminder : reminds
+   user ||--o{ reminder : sets
+
+   user ||--o{ user_preferred_club : prefers
+   club ||--o{ user_preferred_club : preferred_by
+
+   user ||--o{ user_not_preferred_club : not_prefers
+   club ||--o{ user_not_preferred_club : not_preferred_by
+
+   user ||--o{ user_preferred_category : prefers
+   event_category ||--o{ user_preferred_category : preferred_by
+
+   user ||--o{ user_not_preferred_category : not_prefers
+   event_category ||--o{ user_not_preferred_category : not_preferred_by
+
+   admin_permission ||--o{ admin_permission_alloted : includes
+   user ||--o{ admin_permission_alloted : assigned
+```

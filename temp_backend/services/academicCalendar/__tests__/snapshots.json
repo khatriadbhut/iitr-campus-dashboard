@@ -1,0 +1,2026 @@
+{
+  "Acad_CalendarFor_All_Programs_Other_than_MBA.pdf": {
+    "status": "ok",
+    "semester": "Autumn 2025-26",
+    "total": 54,
+    "holidays": 10,
+    "tentative": 2,
+    "flags": [],
+    "entries": [
+      {
+        "t": "admissioncumacademicregistrationfornewphdandmastersstudentsincludingnewmdesstudents",
+        "s": "2025-07-15",
+        "e": "2025-07-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationforexistingstudents",
+        "s": "2025-07-15",
+        "e": "2025-07-16",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramfornewphdandmastersstudentsincludingnewmdesstudents",
+        "s": "2025-07-16",
+        "e": "2025-07-16",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesexceptugiyear",
+        "s": "2025-07-17",
+        "e": "2025-07-17",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforspringsemester202425",
+        "s": "2025-07-17",
+        "e": "2025-07-19",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationfornewugstudents",
+        "s": "2025-07-25",
+        "e": "2025-07-25",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramnewlyadmittedugstudents",
+        "s": "2025-07-26",
+        "e": "2025-07-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramnewlyadmittedugstudents",
+        "s": "2025-08-02",
+        "e": "2025-08-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforugiyear",
+        "s": "2025-07-28",
+        "e": "2025-07-28",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforacademicregistrationwithlatefine",
+        "s": "2025-08-01",
+        "e": "2025-08-01",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforaddingchangingcoursesforallprograms",
+        "s": "2025-08-01",
+        "e": "2025-08-01",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsubmissionofmandatorydocumentsfornewlyadmittedstudents",
+        "s": "2025-08-28",
+        "e": "2025-08-28",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "convocation2025",
+        "s": "2025-09-05",
+        "e": "2025-09-05",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "midtermexaminationsexceptsunday",
+        "s": "2025-09-11",
+        "e": "2025-09-17",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "midtermbreak",
+        "s": "2025-09-18",
+        "e": "2025-09-21",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "sangram2025",
+        "s": "2025-09-20",
+        "e": "2025-09-21",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforinformingthestudentsaboutperformanceinmteandinternalassessment",
+        "s": "2025-09-29",
+        "e": "2025-09-29",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiontheonlineportal",
+        "s": "2025-09-29",
+        "e": "2025-10-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "thomso2025",
+        "s": "2025-10-24",
+        "e": "2025-10-26",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforwithdrawalofcourses",
+        "s": "2025-11-07",
+        "e": "2025-11-07",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiiontheonlineportal",
+        "s": "2025-11-10",
+        "e": "2025-11-12",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofteaching",
+        "s": "2025-11-12",
+        "e": "2025-11-12",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "endtermexaminationsexcludingsundayandinstitutefoundationday",
+        "s": "2025-11-14",
+        "e": "2025-11-24",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "institutefoundationday",
+        "s": "2025-11-25",
+        "e": "2025-11-25",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofshowingendtermexaminationsanswerscriptsandelectroniccommunicationofgradestostudents",
+        "s": "2025-12-01",
+        "e": "2025-12-01",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforstudentstoapplyforgraderevisionifany",
+        "s": "2025-12-02",
+        "e": "2025-12-02",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "wintervacationforugstudentsexceptiddfinalyear",
+        "s": "2025-12-03",
+        "e": "2026-01-07",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdatefortheevaluationofprojectthesisseminarforallprograms",
+        "s": "2025-12-03",
+        "e": "2025-12-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsendingfinalgradestoaao",
+        "s": "2025-12-05",
+        "e": "2025-12-05",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforthesubmissionofprogressreportsphdstudentstotheaao",
+        "s": "2025-12-08",
+        "e": "2025-12-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "onlinechoicesforbranchchange",
+        "s": "2025-12-08",
+        "e": "2025-12-11",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "declarationoffinallistofbranchchangetentativedate",
+        "s": "2025-12-30",
+        "e": "2025-12-30",
+        "c": "Academic",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "admissioncumacademicregistrationfornewphdstudents",
+        "s": "2026-01-08",
+        "e": "2026-01-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationofallexistingstudentsforspringsemester202526",
+        "s": "2026-01-08",
+        "e": "2026-01-09",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforspringsemester202526",
+        "s": "2026-01-12",
+        "e": "2026-01-12",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforautumnsemester202526",
+        "s": "2026-01-12",
+        "e": "2026-01-14",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "independenceday",
+        "s": "2025-08-15",
+        "e": "2025-08-15",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "idemiladprophetmohammadsbirthday",
+        "s": "2025-09-05",
+        "e": "2025-09-05",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "mahashtamimahanavmi",
+        "s": "2025-10-01",
+        "e": "2025-10-01",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahatmagandhisbirthday",
+        "s": "2025-10-02",
+        "e": "2025-10-02",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "dussehravijaydashmi",
+        "s": "2025-10-02",
+        "e": "2025-10-02",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "diwalideepavali",
+        "s": "2025-10-20",
+        "e": "2025-10-20",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "govardhanpuja",
+        "s": "2025-10-22",
+        "e": "2025-10-22",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "bhaiduj",
+        "s": "2025-10-23",
+        "e": "2025-10-23",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "gurunanaksbirthday",
+        "s": "2025-11-05",
+        "e": "2025-11-05",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "christmasday",
+        "s": "2025-12-25",
+        "e": "2025-12-25",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulethursdaystimetable",
+        "s": "2025-08-11",
+        "e": "2025-08-11",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulewednesdaystimetable",
+        "s": "2025-09-09",
+        "e": "2025-09-09",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2025-10-21",
+        "e": "2025-10-21",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2025-08-09",
+        "e": "2025-08-09",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablerescheduletuesdaystimetable",
+        "s": "2025-08-23",
+        "e": "2025-08-23",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2025-08-30",
+        "e": "2025-08-30",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulemondaystimetable",
+        "s": "2025-11-01",
+        "e": "2025-11-01",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulethursdaystimetable",
+        "s": "2025-11-08",
+        "e": "2025-11-08",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      }
+    ]
+  },
+  "Academic_Calendar_-_Spring_Semester_2024-25_Revised.pdf": {
+    "status": "ok",
+    "semester": "Spring 2024-25",
+    "total": 42,
+    "holidays": 9,
+    "tentative": 4,
+    "flags": [],
+    "entries": [
+      {
+        "t": "admissioncumacademicregistrationfornewphdstudents",
+        "s": "2025-01-13",
+        "e": "2025-01-13",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationofallexistingstudentsforspringsemester202425",
+        "s": "2025-01-13",
+        "e": "2025-01-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforspringsemester202425",
+        "s": "2025-01-15",
+        "e": "2025-01-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforautumnsemester202425",
+        "s": "2025-01-15",
+        "e": "2025-01-17",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsendingthegradesofreexaminationandsecondexaminationforautumnsemester202425",
+        "s": "2025-01-24",
+        "e": "2025-01-24",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforacademicregistrationwithlatefine",
+        "s": "2025-01-27",
+        "e": "2025-01-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforaddingchangingcoursesforallprograms",
+        "s": "2025-01-27",
+        "e": "2025-01-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsubmissionofmandatorydocumentsfornewlyadmittedphdstudents",
+        "s": "2025-02-14",
+        "e": "2025-02-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "nationalscienceday",
+        "s": "2025-02-28",
+        "e": "2025-02-28",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "midtermexaminations",
+        "s": "2025-03-07",
+        "e": "2025-03-12",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "midtermbreak",
+        "s": "2025-03-13",
+        "e": "2025-03-16",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiontheonlineportal",
+        "s": "2025-03-17",
+        "e": "2025-03-20",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofinformingthestudentsaboutperformanceinmteandinternalassessment",
+        "s": "2025-03-19",
+        "e": "2025-03-19",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "cognizance2025includinginstituteresearchday",
+        "s": "2025-03-20",
+        "e": "2025-03-23",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforwithdrawalofcourses",
+        "s": "2025-04-28",
+        "e": "2025-04-28",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiiontheonlineportal",
+        "s": "2025-04-28",
+        "e": "2025-05-02",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofteaching",
+        "s": "2025-05-02",
+        "e": "2025-05-02",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "endtermexaminationsexcludingsunday",
+        "s": "2025-05-05",
+        "e": "2025-05-14",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofshowingendtermexaminationsanswerscriptsandelectroniccommunicationofgradestostudents",
+        "s": "2025-05-20",
+        "e": "2025-05-20",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "summervacationforugstudentsexceptiddfinalyear",
+        "s": "2025-05-20",
+        "e": "2025-07-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforstudentstoapplyforgraderevisionifany",
+        "s": "2025-05-21",
+        "e": "2025-05-21",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdatefortheevaluationofprojectthesisseminarforallprograms",
+        "s": "2025-05-26",
+        "e": "2025-05-26",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsendingfinalgradestoaao",
+        "s": "2025-05-27",
+        "e": "2025-05-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsubmissionoftheprogressreportforphdstudents",
+        "s": "2025-06-06",
+        "e": "2025-06-06",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "admissioncumacademicregistrationfornewphdandmastersstudentsincludingnewmdesstudents",
+        "s": "2025-07-15",
+        "e": "2025-07-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationforexistingstudents",
+        "s": "2025-07-15",
+        "e": "2025-07-16",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesexceptugiyear",
+        "s": "2025-07-17",
+        "e": "2025-07-17",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforspringsemester202425",
+        "s": "2025-07-17",
+        "e": "2025-07-19",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationfornewugstudents",
+        "s": "2025-07-25",
+        "e": "2025-07-25",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforugiyear",
+        "s": "2025-07-28",
+        "e": "2025-07-28",
+        "c": "Academic",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "republicday",
+        "s": "2025-01-26",
+        "e": "2025-01-26",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahashivratri",
+        "s": "2025-02-26",
+        "e": "2025-02-26",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "holi",
+        "s": "2025-03-14",
+        "e": "2025-03-14",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "idulfitr",
+        "s": "2025-03-31",
+        "e": "2025-03-31",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "mahavirjayanti",
+        "s": "2025-04-10",
+        "e": "2025-04-10",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "goodfriday",
+        "s": "2025-04-18",
+        "e": "2025-04-18",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "buddhapurnima",
+        "s": "2025-05-12",
+        "e": "2025-05-12",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "idulzuhabakrid",
+        "s": "2025-06-07",
+        "e": "2025-06-07",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "muharram",
+        "s": "2025-07-06",
+        "e": "2025-07-06",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2025-03-29",
+        "e": "2025-03-29",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulethursdaystimetable",
+        "s": "2025-04-05",
+        "e": "2025-04-05",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2025-04-26",
+        "e": "2025-04-26",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      }
+    ]
+  },
+  "All_Programs_Other_than_MBA_Spring_Calendar_2025-26 (1).pdf": {
+    "status": "ok",
+    "semester": "Spring 2025-26",
+    "total": 44,
+    "holidays": 8,
+    "tentative": 5,
+    "flags": [
+      "convocation2026firstweekofseptember2026subjecttothejosaacounselling"
+    ],
+    "entries": [
+      {
+        "t": "admissioncumacademicregistrationfornewphdstudents",
+        "s": "2026-01-08",
+        "e": "2026-01-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationforexistingstudentsforspringsemester202526",
+        "s": "2026-01-08",
+        "e": "2026-01-09",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforspringsemester202526",
+        "s": "2026-01-12",
+        "e": "2026-01-12",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforautumnsemester202526",
+        "s": "2026-01-12",
+        "e": "2026-01-14",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsendingthegradesofreexaminationandsecondexaminationforautumnsemester202526",
+        "s": "2026-01-19",
+        "e": "2026-01-19",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforacademicregistrationwithalatefine",
+        "s": "2026-01-23",
+        "e": "2026-01-23",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforaddingchangingcoursesforallprograms",
+        "s": "2026-01-27",
+        "e": "2026-01-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsubmissionofmandatorydocumentsfornewlyadmittedphdstudents",
+        "s": "2026-02-13",
+        "e": "2026-02-13",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "midtermexaminationsexceptsunday",
+        "s": "2026-02-26",
+        "e": "2026-03-03",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "nationalscienceday",
+        "s": "2026-02-28",
+        "e": "2026-02-28",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "midtermbreak",
+        "s": "2026-03-04",
+        "e": "2026-03-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforinformingthestudentsaboutperformanceinmteandinternalassessment",
+        "s": "2026-03-11",
+        "e": "2026-03-11",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiontheonlineportal",
+        "s": "2026-03-11",
+        "e": "2026-03-13",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "instituteresearchday",
+        "s": "2026-03-13",
+        "e": "2026-03-13",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "cognizance2026tentative",
+        "s": "2026-03-13",
+        "e": "2026-03-15",
+        "c": "Fest",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "lastdateforwithdrawalofcourses",
+        "s": "2026-04-27",
+        "e": "2026-04-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiiontheonlineportal",
+        "s": "2026-04-28",
+        "e": "2026-04-30",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofteaching",
+        "s": "2026-04-30",
+        "e": "2026-04-30",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "endtermexaminationsexcludingsunday",
+        "s": "2026-05-02",
+        "e": "2026-05-11",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofshowingtheendtermexaminationsanswerscripts",
+        "s": "2026-05-18",
+        "e": "2026-05-18",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofelectroniccommunicationofgradestostudents",
+        "s": "2026-05-21",
+        "e": "2026-05-21",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforstudentstoapplyforgraderevisionifany",
+        "s": "2026-05-23",
+        "e": "2026-05-23",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdatefortheevaluationofprojectthesisseminarforallprograms",
+        "s": "2026-05-28",
+        "e": "2026-05-28",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsendingfinalgradestoaao",
+        "s": "2026-05-29",
+        "e": "2026-05-29",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsubmissionoftheprogressreportforthephdstudents",
+        "s": "2026-06-05",
+        "e": "2026-06-05",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "summervacationforugstudentsexceptiddfinalyear",
+        "s": "2026-05-19",
+        "e": "2026-07-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "admissioncumacademicregistrationfornewphdandmastersstudents",
+        "s": "2026-07-14",
+        "e": "2026-07-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationofallexistingstudents",
+        "s": "2026-07-14",
+        "e": "2026-07-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesexceptugiyear",
+        "s": "2026-07-16",
+        "e": "2026-07-16",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforspringsemester202526",
+        "s": "2026-07-16",
+        "e": "2026-07-18",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationfornewugstudents",
+        "s": "2026-07-24",
+        "e": "2026-07-24",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforugiyear",
+        "s": "2026-07-27",
+        "e": "2026-07-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "convocation2026firstweekofseptember2026subjecttothejosaacounselling",
+        "s": null,
+        "e": null,
+        "c": "Fest",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "republicday",
+        "s": "2026-01-26",
+        "e": "2026-01-26",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "holi",
+        "s": "2026-03-04",
+        "e": "2026-03-04",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "idulfitr",
+        "s": "2026-03-21",
+        "e": "2026-03-21",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "mahavirjayanti",
+        "s": "2026-03-31",
+        "e": "2026-03-31",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "goodfriday",
+        "s": "2026-04-03",
+        "e": "2026-04-03",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "buddhapurnima",
+        "s": "2026-05-01",
+        "e": "2026-05-01",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "idulzuhabakrid",
+        "s": "2026-05-27",
+        "e": "2026-05-27",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "muharram",
+        "s": "2026-06-26",
+        "e": "2026-06-26",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-01-31",
+        "e": "2026-01-31",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-02-21",
+        "e": "2026-02-21",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-04-08",
+        "e": "2026-04-08",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      }
+    ]
+  },
+  "Autumn Calander 2026-27 Revised.pdf": {
+    "status": "ok",
+    "semester": "Autumn 2026-27",
+    "total": 53,
+    "holidays": 11,
+    "tentative": 3,
+    "flags": [
+      "convocation2026"
+    ],
+    "entries": [
+      {
+        "t": "admissioncumacademicregistrationfornewphdandmastersstudents",
+        "s": "2026-07-14",
+        "e": "2026-07-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationforexistingstudentsinphysicalmode",
+        "s": "2026-07-14",
+        "e": "2026-07-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramfornewphdandmastersstudents",
+        "s": "2026-07-15",
+        "e": "2026-07-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesexceptugiyear",
+        "s": "2026-07-16",
+        "e": "2026-07-16",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforspringsemester202526",
+        "s": "2026-07-16",
+        "e": "2026-07-18",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationfornewugstudents",
+        "s": "2026-07-24",
+        "e": "2026-07-24",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramnewlyadmittedugstudents",
+        "s": "2026-07-25",
+        "e": "2026-07-26",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramnewlyadmittedugstudents",
+        "s": "2026-08-01",
+        "e": "2026-08-02",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforugiyear",
+        "s": "2026-07-27",
+        "e": "2026-07-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforacademicregistrationwithalatefine",
+        "s": "2026-07-31",
+        "e": "2026-07-31",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforaddingchangingcoursesforallprograms",
+        "s": "2026-08-03",
+        "e": "2026-08-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsubmissionofmandatorydocumentsfornewlyadmittedstudents",
+        "s": "2026-08-27",
+        "e": "2026-08-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "convocation2026",
+        "s": "2026-09-19",
+        "e": "2026-09-19",
+        "c": "Fest",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "midtermexaminationsexceptsunday",
+        "s": "2026-09-10",
+        "e": "2026-09-15",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforinformingthestudentsaboutperformanceinmteandinternalassessment",
+        "s": "2026-09-28",
+        "e": "2026-09-28",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiontheonlineportal",
+        "s": "2026-09-28",
+        "e": "2026-10-01",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "sangram2026",
+        "s": "2026-10-03",
+        "e": "2026-10-04",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforwithdrawalofcourses",
+        "s": "2026-10-05",
+        "e": "2026-10-05",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "thomso2026",
+        "s": "2026-10-09",
+        "e": "2026-10-11",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiiontheonlineportal",
+        "s": "2026-11-05",
+        "e": "2026-11-11",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofteaching",
+        "s": "2026-11-11",
+        "e": "2026-11-11",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "endtermexaminationsexcludingsundayanddeclaredholidays",
+        "s": "2026-11-13",
+        "e": "2026-11-24",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "institutefoundationday",
+        "s": "2026-11-25",
+        "e": "2026-11-25",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofshowingtheendtermexaminationsanswerscripts",
+        "s": "2026-12-01",
+        "e": "2026-12-01",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofelectroniccommunicationofgradestostudents",
+        "s": "2026-12-03",
+        "e": "2026-12-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforstudentstoapplyforgraderevisionifany",
+        "s": "2026-12-04",
+        "e": "2026-12-04",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "wintervacationforugstudentsexceptiddfinalyear",
+        "s": "2026-12-05",
+        "e": "2027-01-06",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdatefortheevaluationofprojectthesisseminarforallprograms",
+        "s": "2026-12-03",
+        "e": "2026-12-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsendingfinalgradestoaao",
+        "s": "2026-12-08",
+        "e": "2026-12-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforthesubmissionofprogressreportsphdstudentstotheaao",
+        "s": "2026-12-09",
+        "e": "2026-12-09",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "onlinechoicesforbranchchange",
+        "s": "2026-12-10",
+        "e": "2026-12-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "declarationofthefinallistofbranchchangetentativedate",
+        "s": "2026-12-31",
+        "e": "2026-12-31",
+        "c": "Academic",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "admissioncumacademicregistrationfornewphdstudents",
+        "s": "2027-01-07",
+        "e": "2027-01-07",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationofallexistingstudentsforspringsemester202627inphysicalmode",
+        "s": "2027-01-07",
+        "e": "2027-01-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforspringsemester202627",
+        "s": "2027-01-11",
+        "e": "2027-01-11",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforautumnsemester202627",
+        "s": "2027-01-11",
+        "e": "2027-01-13",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "independenceday",
+        "s": "2026-08-15",
+        "e": "2026-08-15",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "idemiladprophetmohammadsbirthday",
+        "s": "2026-08-26",
+        "e": "2026-08-26",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "rakshabandhan",
+        "s": "2026-08-28",
+        "e": "2026-08-28",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "janamashtami",
+        "s": "2026-09-04",
+        "e": "2026-09-04",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahatmagandhisbirthday",
+        "s": "2026-10-02",
+        "e": "2026-10-02",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahashtami",
+        "s": "2026-10-19",
+        "e": "2026-10-19",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahanavmidussehravijaydashmi",
+        "s": "2026-10-20",
+        "e": "2026-10-20",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "diwalideepavali",
+        "s": "2026-11-08",
+        "e": "2026-11-08",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "govardhanpuja",
+        "s": "2026-11-09",
+        "e": "2026-11-09",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "gurunanaksbirthday",
+        "s": "2026-11-24",
+        "e": "2026-11-24",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "christmasday",
+        "s": "2026-12-25",
+        "e": "2026-12-25",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-09-23",
+        "e": "2026-09-23",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-10-28",
+        "e": "2026-10-28",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulemondaystimetable",
+        "s": "2026-08-01",
+        "e": "2026-08-01",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulethursdaystimetable",
+        "s": "2026-08-08",
+        "e": "2026-08-08",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-08-22",
+        "e": "2026-08-22",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-10-24",
+        "e": "2026-10-24",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      }
+    ]
+  },
+  "Autumn_Calander_2026-27_All_Programme_other_than_MBA (1).pdf": {
+    "status": "ok",
+    "semester": "Autumn 2026-27",
+    "total": 53,
+    "holidays": 11,
+    "tentative": 3,
+    "flags": [
+      "convocation2026"
+    ],
+    "entries": [
+      {
+        "t": "admissioncumacademicregistrationfornewphdandmastersstudents",
+        "s": "2026-07-14",
+        "e": "2026-07-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationforexistingstudentsinphysicalmode",
+        "s": "2026-07-14",
+        "e": "2026-07-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramfornewphdandmastersstudents",
+        "s": "2026-07-15",
+        "e": "2026-07-15",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesexceptugiyear",
+        "s": "2026-07-16",
+        "e": "2026-07-16",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforspringsemester202526",
+        "s": "2026-07-16",
+        "e": "2026-07-18",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationfornewugstudents",
+        "s": "2026-07-24",
+        "e": "2026-07-24",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramnewlyadmittedugstudents",
+        "s": "2026-07-25",
+        "e": "2026-07-26",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "orientationprogramnewlyadmittedugstudents",
+        "s": "2026-08-01",
+        "e": "2026-08-02",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforugiyear",
+        "s": "2026-07-27",
+        "e": "2026-07-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforacademicregistrationwithalatefine",
+        "s": "2026-07-31",
+        "e": "2026-07-31",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforaddingchangingcoursesforallprograms",
+        "s": "2026-08-03",
+        "e": "2026-08-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsubmissionofmandatorydocumentsfornewlyadmittedstudents",
+        "s": "2026-08-27",
+        "e": "2026-08-27",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "convocation2026",
+        "s": "2026-09-19",
+        "e": "2026-09-19",
+        "c": "Fest",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "midtermexaminationsexceptsunday",
+        "s": "2026-09-10",
+        "e": "2026-09-15",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforinformingthestudentsaboutperformanceinmteandinternalassessment",
+        "s": "2026-09-28",
+        "e": "2026-09-28",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiontheonlineportal",
+        "s": "2026-09-28",
+        "e": "2026-10-01",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "sangram2026",
+        "s": "2026-10-03",
+        "e": "2026-10-04",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforwithdrawalofcourses",
+        "s": "2026-10-05",
+        "e": "2026-10-05",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "thomso2026",
+        "s": "2026-10-09",
+        "e": "2026-10-11",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "submissionofthefeedbackresponseformiiontheonlineportal",
+        "s": "2026-11-05",
+        "e": "2026-11-11",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofteaching",
+        "s": "2026-11-11",
+        "e": "2026-11-11",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "endtermexaminationsexcludingsundayanddeclaredholidays",
+        "s": "2026-11-13",
+        "e": "2026-11-24",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "institutefoundationday",
+        "s": "2026-11-25",
+        "e": "2026-11-25",
+        "c": "Fest",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofshowingtheendtermexaminationsanswerscripts",
+        "s": "2026-12-01",
+        "e": "2026-12-01",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateofelectroniccommunicationofgradestostudents",
+        "s": "2026-12-03",
+        "e": "2026-12-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforstudentstoapplyforgraderevisionifany",
+        "s": "2026-12-04",
+        "e": "2026-12-04",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "wintervacationforugstudentsexceptiddfinalyear",
+        "s": "2026-12-05",
+        "e": "2027-01-06",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdatefortheevaluationofprojectthesisseminarforallprograms",
+        "s": "2026-12-03",
+        "e": "2026-12-03",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforsendingfinalgradestoaao",
+        "s": "2026-12-08",
+        "e": "2026-12-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "lastdateforthesubmissionofprogressreportsphdstudentstotheaao",
+        "s": "2026-12-09",
+        "e": "2026-12-09",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "onlinechoicesforbranchchange",
+        "s": "2026-12-10",
+        "e": "2026-12-14",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "declarationofthefinallistofbranchchangetentativedate",
+        "s": "2026-12-31",
+        "e": "2026-12-31",
+        "c": "Academic",
+        "h": false,
+        "x": true
+      },
+      {
+        "t": "admissioncumacademicregistrationfornewphdstudents",
+        "s": "2027-01-07",
+        "e": "2027-01-07",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "academicregistrationofallexistingstudentsforspringsemester202627inphysicalmode",
+        "s": "2027-01-07",
+        "e": "2027-01-08",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "commencementofclassesforspringsemester202627",
+        "s": "2027-01-11",
+        "e": "2027-01-11",
+        "c": "Academic",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "reexaminationandsecondexaminationforautumnsemester202627",
+        "s": "2027-01-11",
+        "e": "2027-01-13",
+        "c": "Exam",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "independenceday",
+        "s": "2026-08-15",
+        "e": "2026-08-15",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "idemiladprophetmohammadsbirthday",
+        "s": "2026-08-26",
+        "e": "2026-08-26",
+        "c": "Holiday",
+        "h": true,
+        "x": true
+      },
+      {
+        "t": "rakshabandhan",
+        "s": "2026-08-28",
+        "e": "2026-08-28",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "janamashtami",
+        "s": "2026-09-04",
+        "e": "2026-09-04",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahatmagandhisbirthday",
+        "s": "2026-10-02",
+        "e": "2026-10-02",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahashtami",
+        "s": "2026-10-19",
+        "e": "2026-10-19",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "mahanavmidussehravijaydashmi",
+        "s": "2026-10-20",
+        "e": "2026-10-20",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "diwalideepavali",
+        "s": "2026-11-08",
+        "e": "2026-11-08",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "govardhanpuja",
+        "s": "2026-11-09",
+        "e": "2026-11-09",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "gurunanaksbirthday",
+        "s": "2026-11-24",
+        "e": "2026-11-24",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "christmasday",
+        "s": "2026-12-25",
+        "e": "2026-12-25",
+        "c": "Holiday",
+        "h": true,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-09-23",
+        "e": "2026-09-23",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-10-28",
+        "e": "2026-10-28",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulemondaystimetable",
+        "s": "2026-08-01",
+        "e": "2026-08-01",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulethursdaystimetable",
+        "s": "2026-08-08",
+        "e": "2026-08-08",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-08-22",
+        "e": "2026-08-22",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      },
+      {
+        "t": "timetablereschedulefridaystimetable",
+        "s": "2026-10-24",
+        "e": "2026-10-24",
+        "c": "Timetable Reschedule",
+        "h": false,
+        "x": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/pwa-192.png" />
+  <link rel="apple-touch-icon" href="/pwa-512.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a7c5c" />
+  <meta name="color-scheme" content="light" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Event Dashboard" />
+  <title>Dashboard — IITR Campus Dashboard</title>
+  <meta name="description" content="Sign in with Channel-i to see every event, workshop and deadline at IIT Roorkee in one feed, sorted by the clubs you follow." />
+
+  <!-- Every route under /app/ is served this same shell by the CloudFront router, so without a
+       canonical each one (/app/home, /app/calendar, /app/event/9 …) looks to a crawler like a
+       separate near-duplicate page. Pointing them all at /app/ consolidates them into one. -->
+  <link rel="canonical" href="https://campus-dashboard.iitr.ac.in/app/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="IITR Campus Dashboard" />
+  <meta property="og:title" content="IITR Campus Dashboard" />
+  <meta property="og:description" content="Every event, workshop and deadline at IIT Roorkee in one feed." />
+  <meta property="og:url" content="https://campus-dashboard.iitr.ac.in/app/" />
+  <meta property="og:image" content="https://campus-dashboard.iitr.ac.in/assets/img/og-image-v2.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

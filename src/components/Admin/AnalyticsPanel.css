@@ -1,0 +1,414 @@
+/* Admin analytics — a log console, not a marketing dashboard.
+ *
+ * The whole surface is built for scanning a column at a time: fixed columns so the eye tracks
+ * straight down, tabular figures so timestamps and IPs line up character-for-character, and a
+ * scroll container of its own so the filter bar and column header never leave the screen no matter
+ * how deep the history goes. Colour is used only where it means something — security lines. */
+
+.an-wrap { padding: 4px 0 24px; }
+
+.an-state {
+    display: flex; align-items: center; gap: 8px;
+    padding: 24px 4px; color: var(--text-secondary); font-size: 0.9rem;
+}
+.an-error { color: var(--red); }
+.an-spin { animation: an-rot 1s linear infinite; }
+@keyframes an-rot { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .an-spin { animation: none; } }
+
+.an-empty-box {
+    flex-direction: column; align-items: center; text-align: center;
+    gap: 6px; padding: 44px 24px; color: var(--text-secondary);
+}
+.an-empty-box p { margin: 0; font-size: 0.84rem; max-width: 46ch; line-height: 1.5; }
+
+/* ── The header line ────────────────────────────────────────────────────── */
+/* Context for reading the log, deliberately understated. The only element allowed to be loud is the
+ * urgent count, because it is the only one that should change what you do next. */
+.an-summary {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 7px;
+    margin-bottom: 12px; font-size: 0.84rem; color: var(--text-secondary);
+}
+.an-summary b {
+    color: var(--text-primary); font-weight: 700; font-variant-numeric: tabular-nums;
+}
+.an-sep { opacity: 0.35; }
+
+.an-urgent {
+    display: inline-flex; align-items: center; gap: 6px; margin-left: auto;
+    padding: 5px 12px; border-radius: var(--radius-full); cursor: pointer;
+    background: none; border: 1px solid var(--grey-200);
+    font-size: 0.82rem; color: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+.an-urgent:hover { border-color: var(--red); color: var(--red); }
+.an-urgent-on {
+    border-color: color-mix(in srgb, var(--red) 45%, transparent);
+    background: color-mix(in srgb, var(--red) 7%, transparent);
+    color: var(--red);
+}
+.an-urgent-on b { color: var(--red); }
+
+/* ── Attacker addresses ─────────────────────────────────────────────────── */
+/* A quiet one-liner, not a banner. It is a shortcut to a query, not a finding — the tile above is
+ * where "something needs attention" gets to be loud, and two loud things cancel each other out. */
+.an-ips {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 5px;
+    padding: 0 2px; margin: 0 0 12px;
+}
+.an-ips-l {
+    font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--text-secondary); opacity: 0.8; margin-right: 3px;
+}
+.an-ip {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 2px 7px; border-radius: var(--radius-sm); cursor: pointer;
+    background: none; border: 1px solid var(--grey-200);
+    font-size: 0.72rem; color: var(--text-secondary);
+}
+.an-ip code { font-size: 0.72rem; color: var(--text-secondary); }
+.an-ip b { color: var(--text-secondary); font-weight: 600; font-variant-numeric: tabular-nums; }
+.an-ip:hover { border-color: var(--red); color: var(--red); }
+.an-ip:hover code, .an-ip:hover b { color: var(--red); }
+.an-ip-on { border-color: var(--red); color: var(--red); }
+.an-ip-on code, .an-ip-on b { color: var(--red); }
+
+/* ── Filter bar ─────────────────────────────────────────────────────────── */
+.lg-bar {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 10px; margin-bottom: 10px;
+}
+.lg-groups { display: flex; flex-wrap: wrap; gap: 4px; }
+.lg-tab {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 11px; border-radius: var(--radius-full);
+    background: none; border: 1px solid var(--grey-200);
+    font-size: 0.8rem; color: var(--text-secondary); cursor: pointer;
+    transition: var(--transition-fast);
+}
+.lg-tab:hover { color: var(--text-primary); border-color: var(--grey-500); }
+.lg-tab-on {
+    background: var(--brand-purple); border-color: var(--brand-purple);
+    color: #fff; font-weight: 600;
+}
+.lg-tab-sec.lg-tab-on { background: var(--red); border-color: var(--red); }
+.lg-count {
+    font-size: 0.7rem; padding: 0 5px; border-radius: var(--radius-full);
+    background: var(--grey-100); color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+.lg-tab-on .lg-count { background: rgba(255, 255, 255, 0.24); color: #fff; }
+
+.lg-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+.lg-search {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px; border: 1px solid var(--grey-200);
+    border-radius: var(--radius-sm); background: var(--bg-card); color: var(--text-secondary);
+}
+.lg-search:focus-within { border-color: var(--brand-purple); }
+.lg-search input {
+    border: none; outline: none; background: none;
+    font-size: 0.8rem; color: var(--text-primary); width: 210px;
+}
+
+.lg-range-wrap { position: relative; }
+.lg-range-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer;
+    border: 1px solid var(--grey-200); background: var(--bg-card);
+    font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap;
+}
+.lg-range-btn:hover { color: var(--brand-purple); border-color: var(--brand-purple); }
+.lg-range-btn-on { color: var(--brand-purple); border-color: var(--brand-purple); background: var(--brand-purple-pale); }
+
+.lg-range-menu {
+    position: absolute; top: calc(100% + 5px); right: 0; z-index: 20;
+    display: flex; flex-direction: column; gap: 1px; min-width: 208px;
+    padding: 6px; border-radius: var(--radius-md);
+    background: var(--bg-card); box-shadow: 0 6px 22px rgba(0, 0, 0, 0.13);
+    border: 1px solid var(--grey-200);
+}
+.lg-range-item {
+    text-align: left; padding: 7px 10px; border: none; border-radius: var(--radius-sm);
+    background: none; cursor: pointer; font-size: 0.8rem; color: var(--text-primary);
+}
+.lg-range-item:hover { background: var(--grey-100); }
+.lg-range-item-on { background: var(--brand-purple-pale); color: var(--brand-purple); font-weight: 600; }
+.lg-range-sep { height: 1px; margin: 5px 4px; background: var(--grey-200); }
+.lg-range-l {
+    padding: 0 10px 4px; font-size: 0.64rem; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--text-secondary);
+}
+.lg-range-dates { display: flex; align-items: center; gap: 5px; padding: 0 6px 4px; color: var(--text-secondary); font-size: 0.74rem; }
+.lg-range-dates input {
+    flex: 1; min-width: 0; padding: 5px 7px; border: 1px solid var(--grey-200);
+    border-radius: var(--radius-sm); background: var(--bg-primary);
+    color: var(--text-primary); font-size: 0.74rem;
+}
+.lg-range-reset {
+    margin-top: 3px; padding: 6px 10px; border: none; border-radius: var(--radius-sm);
+    background: none; cursor: pointer; text-align: left;
+    font-size: 0.76rem; color: var(--brand-purple);
+}
+.lg-range-reset:hover { background: var(--grey-100); }
+
+.lg-live {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 11px; border-radius: var(--radius-full); cursor: pointer;
+    border: 1px solid var(--grey-200); background: var(--bg-card);
+    font-size: 0.78rem; color: var(--text-secondary);
+}
+.lg-live-on {
+    border-color: color-mix(in srgb, var(--green) 55%, transparent);
+    color: var(--green); font-weight: 600;
+}
+/* A pulse, because a stream that says "Live" while sitting still is not believable. */
+.lg-live-on::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); animation: lg-pulse 1.8s ease-in-out infinite;
+}
+@keyframes lg-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .lg-live-on::before { animation: none; } }
+
+.lg-active { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 10px; }
+.lg-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 6px 3px 9px; border-radius: var(--radius-full);
+    background: var(--brand-purple-pale); color: var(--brand-purple); font-size: 0.75rem;
+}
+.lg-chip button { display: inline-flex; background: none; border: none; cursor: pointer; color: inherit; padding: 0; }
+.lg-clear { background: none; border: none; cursor: pointer; font-size: 0.75rem; color: var(--text-secondary); text-decoration: underline; }
+
+/* ── The table ──────────────────────────────────────────────────────────── */
+/* One grid definition, shared by the header and every row, so columns cannot drift apart. */
+.lg-head, .lg-row {
+    display: grid;
+    grid-template-columns: 86px minmax(136px, 1fr) minmax(142px, 0.9fr) minmax(160px, 1.6fr) 116px 60px;
+    gap: 10px; align-items: center;
+}
+.lg-head {
+    padding: 0 12px 6px;
+    font-size: 0.66rem; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text-secondary); border-bottom: 1px solid var(--grey-200);
+}
+
+/* Its own scroll container: the filters and column header stay put however deep you go. */
+.lg-list {
+    max-height: 62vh; overflow-y: auto; overscroll-behavior: contain;
+    border-bottom: 1px solid var(--grey-200);
+}
+
+.lg-row {
+    width: 100%; text-align: left; cursor: pointer;
+    padding: 9px 12px; background: none; border: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--grey-200) 55%, transparent);
+    font-size: 0.82rem; color: var(--text-primary);
+}
+.lg-row:hover { background: var(--grey-100); }
+.lg-row-sec { background: color-mix(in srgb, var(--red) 4%, transparent); }
+.lg-row-sec:hover { background: color-mix(in srgb, var(--red) 9%, transparent); }
+/* Newly streamed rows announce themselves, then stop. A permanent marker would stop meaning "new". */
+.lg-row-new { animation: lg-flash 2.2s ease-out; }
+@keyframes lg-flash {
+    from { background: var(--brand-purple-pale); }
+    to { background: transparent; }
+}
+@media (prefers-reduced-motion: reduce) { .lg-row-new { animation: none; } }
+
+.lg-c-time { display: flex; flex-direction: column; line-height: 1.25; }
+.lg-clock { font-variant-numeric: tabular-nums; font-size: 0.8rem; color: var(--text-primary); }
+.lg-day { font-size: 0.68rem; color: var(--text-secondary); }
+
+.lg-c-who { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+.lg-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Roll number and branch get their own line — the two identifiers you actually chase someone by. */
+.lg-meta {
+    font-size: 0.68rem; color: var(--text-secondary);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-variant-numeric: tabular-nums;
+}
+.lg-anon { color: var(--text-secondary); font-style: italic; }
+
+.lg-c-action { font-size: 0.79rem; color: var(--text-secondary); }
+.lg-danger { color: var(--red); font-weight: 600; }
+
+.lg-c-subject {
+    min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    color: var(--text-primary);
+}
+
+.lg-c-ip code {
+    font-size: 0.73rem; padding: 2px 5px; border-radius: 3px;
+    background: var(--grey-100); color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+}
+.lg-dash { color: var(--text-secondary); opacity: 0.5; }
+.lg-c-ago { font-size: 0.7rem; color: var(--text-secondary); text-align: right; white-space: nowrap; }
+
+.lg-more {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    width: 100%; padding: 11px; background: none; border: none; cursor: pointer;
+    font-size: 0.8rem; color: var(--brand-purple);
+}
+.lg-more:hover { background: var(--grey-100); }
+.lg-end { padding: 12px; text-align: center; font-size: 0.74rem; color: var(--text-secondary); opacity: 0.7; }
+
+/* ── Detail drawer ──────────────────────────────────────────────────────── */
+/* A drawer rather than an expanding row: the list keeps its position and shape while you read. */
+.lg-scrim { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.28); z-index: 60; }
+.lg-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 61;
+    width: min(420px, 92vw); overflow-y: auto;
+    padding: 18px 20px; background: var(--bg-card);
+    box-shadow: -6px 0 26px rgba(0, 0, 0, 0.14);
+    animation: lg-slide 0.16s ease-out;
+}
+@keyframes lg-slide { from { transform: translateX(14px); opacity: 0.4; } }
+@media (prefers-reduced-motion: reduce) { .lg-drawer { animation: none; } }
+
+.lg-drawer-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.lg-drawer-head h4 { margin: 0; font-size: 0.98rem; color: var(--text-primary); }
+.lg-drawer-head button { background: none; border: none; cursor: pointer; color: var(--text-secondary); padding: 4px; }
+
+.lg-dl { display: grid; grid-template-columns: 84px 1fr; gap: 8px 12px; margin: 0 0 16px; }
+.lg-dl dt { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+.lg-dl dd { margin: 0; font-size: 0.83rem; color: var(--text-primary); word-break: break-word; }
+.lg-dl code { font-size: 0.78rem; background: var(--grey-100); padding: 1px 5px; border-radius: 3px; }
+
+.lg-inline-btn {
+    display: block; margin-top: 4px; padding: 0; background: none; border: none;
+    cursor: pointer; font-size: 0.74rem; color: var(--brand-purple); text-decoration: underline;
+}
+
+.lg-raw-l { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); }
+.lg-raw pre {
+    margin: 6px 0 0; padding: 10px 12px; border-radius: var(--radius-sm);
+    background: var(--grey-100); color: var(--text-primary);
+    font-size: 0.74rem; line-height: 1.5; white-space: pre-wrap; word-break: break-word;
+}
+
+/* ── Narrow screens ─────────────────────────────────────────────────────── */
+/* Six columns cannot survive a phone. Drop to two lines per row and let the eye read down the
+ * left edge instead of across; IP moves onto the meta line rather than being dropped, since it is
+ * one of the things this page exists to show. */
+@media (max-width: 760px) {
+    .lg-head { display: none; }
+    .lg-row {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "who ago" "action ip" "subject subject";
+        gap: 3px 10px; padding: 11px 12px;
+    }
+    .lg-c-time { display: none; }
+    .lg-c-who { grid-area: who; }
+    .lg-c-action { grid-area: action; }
+    .lg-c-subject { grid-area: subject; white-space: normal; font-size: 0.78rem; }
+    .lg-c-ip { grid-area: ip; justify-self: end; }
+    .lg-c-ago { grid-area: ago; }
+    .lg-search input { width: 100%; }
+    .lg-search { flex: 1 1 100%; }
+    .lg-list { max-height: none; }
+}
+
+/* ── Recent content ─────────────────────────────────────────────────────── */
+.an-section { margin-top: 22px; }
+.an-section h4 {
+    display: flex; align-items: center; gap: 6px; margin: 0 0 8px;
+    font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
+}
+.an-content { list-style: none; margin: 0; padding: 0; }
+.an-content li {
+    display: grid; grid-template-columns: 62px minmax(0, 1.4fr) minmax(0, 1fr) auto;
+    gap: 10px; align-items: center;
+    padding: 8px 12px; font-size: 0.8rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--grey-200) 55%, transparent);
+}
+.an-badge {
+    font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700;
+    padding: 2px 7px; border-radius: var(--radius-full); text-align: center;
+    background: var(--brand-purple); color: #fff;
+}
+.an-badge-notice { background: var(--grey-700); }
+.an-c-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-primary); }
+.an-c-meta { font-size: 0.72rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.an-c-when { font-size: 0.7rem; color: var(--text-secondary); white-space: nowrap; text-align: right; }
+@media (max-width: 760px) {
+    .an-content li { grid-template-columns: 56px 1fr; grid-template-areas: "badge title" "meta when"; }
+    .an-badge { grid-area: badge; }
+    .an-c-title { grid-area: title; }
+    .an-c-meta { grid-area: meta; }
+    .an-c-when { grid-area: when; text-align: right; }
+}
+
+
+/* ── Urgent ─────────────────────────────────────────────────────────────── */
+/* Reserved for rows a person should act on: attack attempts, limiter trips, a burst of failed
+ * logins, and anyone being handed super admin. Kept scarce on purpose — a log where every line is
+ * red is a log where the real one gets skipped. */
+.an-tile-btn { border: none; text-align: left; cursor: pointer; font: inherit; }
+.an-tile-btn:hover { box-shadow: 0 0 0 1px var(--brand-purple), var(--shadow-sm); }
+.an-tile-warn.an-tile-btn:hover { box-shadow: 0 0 0 1px var(--red), var(--shadow-sm); }
+
+.lg-urgent-pill {
+    display: inline-block; margin-right: 6px; padding: 1px 6px;
+    border-radius: var(--radius-full); background: var(--red); color: #fff;
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+    vertical-align: middle;
+}
+/* A left edge rather than a fill: it survives the row already being tinted for security, and stays
+ * legible against the "just arrived" flash. */
+.lg-row-urgent { box-shadow: inset 4px 0 0 var(--red); }
+.lg-tab-urgent.lg-tab-on { background: var(--red); border-color: var(--red); }
+
+/* ── Filter panel ───────────────────────────────────────────────────────── */
+.lg-funnel {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 5px 10px; border-radius: var(--radius-sm); cursor: pointer;
+    border: 1px solid var(--grey-200); background: var(--bg-card); color: var(--text-secondary);
+}
+.lg-funnel:hover { color: var(--brand-purple); border-color: var(--brand-purple); }
+.lg-funnel-on {
+    background: var(--brand-purple-pale); border-color: var(--brand-purple); color: var(--brand-purple);
+}
+
+.lg-filters {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    padding: 12px 14px; margin-bottom: 10px;
+    background: var(--bg-card); border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+}
+.lg-fgroup { display: flex; flex-direction: column; gap: 6px; }
+.lg-fgroup-l {
+    font-size: 0.64rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-secondary);
+}
+.lg-fopts { display: flex; flex-wrap: wrap; gap: 5px; }
+.lg-fopt {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 9px; border-radius: var(--radius-full); cursor: pointer;
+    background: none; border: 1px solid var(--grey-200);
+    font-size: 0.75rem; color: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+.lg-fopt:hover { border-color: var(--brand-purple); color: var(--brand-purple); }
+.lg-fopt-on {
+    background: var(--brand-purple-pale); border-color: var(--brand-purple);
+    color: var(--brand-purple); font-weight: 600;
+}
+.lg-fopt-n { font-size: 0.68rem; opacity: 0.7; font-variant-numeric: tabular-nums; }
+.lg-fip {
+    padding: 5px 9px; border: 1px solid var(--grey-200); border-radius: var(--radius-sm);
+    background: var(--bg-primary); color: var(--text-primary); font-size: 0.76rem; min-width: 200px;
+}
+.lg-fip:focus { outline: none; border-color: var(--brand-purple); }
+
+.an-section-note {
+    margin: -2px 0 8px; font-size: 0.74rem; color: var(--text-secondary); opacity: 0.85; max-width: 70ch;
+}
+
+/* The captured payload, shown verbatim. Wraps rather than truncates — a half-shown injection string
+ * is worse than none, since you cannot tell what was actually attempted. */
+.lg-payload {
+    display: block; margin-top: 2px; padding: 6px 8px;
+    background: color-mix(in srgb, var(--red) 8%, var(--grey-100));
+    color: var(--text-primary); border-radius: var(--radius-sm);
+    font-size: 0.74rem; line-height: 1.45; white-space: pre-wrap; word-break: break-all;
+}

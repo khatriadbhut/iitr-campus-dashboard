@@ -1,0 +1,58 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node services/academicCalendar/__tests__/parser.test.js",
+    "test:calendar": "node services/academicCalendar/__tests__/parser.test.js",
+    "test:calendar:update": "UPDATE_SNAPSHOTS=1 node services/academicCalendar/__tests__/parser.test.js",
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "migrate": "sequelize-cli db:migrate",
+    "migrate:undo": "sequelize-cli db:migrate:undo",
+    "migrate:status": "sequelize-cli db:migrate:status",
+    "eval:accuracy": "node services/eventIngestion/__tests__/evalAccuracy.js",
+    "eval:fields": "node services/eventIngestion/__tests__/evalFields.js",
+    "test:guest": "node __tests__/guestLogin.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1096.0",
+    "@sentry/node": "^10.68.0",
+    "axios": "^1.13.4",
+    "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.2",
+    "googleapis": "^173.0.0",
+    "helmet": "^8.3.0",
+    "hpp": "^0.2.3",
+    "html-to-text": "^10.0.0",
+    "joi": "^18.1.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.0.2",
+    "node-cache": "^5.1.2",
+    "pdfjs-dist": "^4.2.67",
+    "pg": "^8.20.0",
+    "pg-hstore": "^2.3.4",
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0",
+    "sequelize": "^6.37.8",
+    "sequelize-cli": "^6.6.5",
+    "sharp": "^0.35.3",
+    "web-push": "^3.6.7"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "overrides": {
+    "uuid": "11.1.1"
+  },
+  "overridesComment": "DO NOT BUMP uuid PAST 11.x. Sequelize 6 does require(\"uuid\") in lib/utils.js; uuid 12+ is ESM-only (no `require` condition in its exports map), so a higher version kills the backend at boot with ERR_REQUIRE_ESM. 11.1.1 is the newest release that still ships CJS *and* carries the GHSA-w5hq-g745-h8pq fix. This override exists to patch that advisory without a Sequelize major upgrade. See sequelize#18224."
+}

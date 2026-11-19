@@ -1,0 +1,482 @@
+/* ============================================================
+   CAMPUS DASHBOARD — Landing v7
+
+   Rebuilt as one coherent file. The previous version had been
+   appended to and regex-stripped across many rounds, which had
+   silently deleted the club rail, the curtain, the closing band,
+   the colophon and the whole reveal system, and left duplicate
+   rules behind for a mock UI that no longer exists.
+
+   Page order:
+     masthead · hero · club rail · the beat (scraps → phone)
+     curtain · feed · calendar · clubs · reminders
+     the embedded app · close
+
+   Phones: every section screen is a live <canvas> painted from
+   real captures of src/ running. The last one is the real app in
+   an iframe. On desktop a 3D phone in a fixed canvas stands in
+   for the section phones and crosses between columns.
+
+   Design rules: warm paper, three flat inks, no gradients, no
+   glass, no blur, no glow, no grain, no Inter.
+   ============================================================ */
+
+:root{
+  color-scheme:light;   /* opt out of any browser auto-dark repaint */
+  --paper:#f4eede;
+  --paper-2:#e6dfcb;
+  --ink:#17151a;
+  --ink-2:#5d5750;
+  --plum:#713364;
+  --plum-d:#4a2141;
+  --verm:#c8371f;
+  --line:rgba(23,21,26,.16);
+  --line-2:rgba(23,21,26,.3);
+  --rule-paper:rgba(244,238,222,.26);
+
+  --grot:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --serif:'Spectral',Georgia,serif;
+
+  --t-sm:.875rem;
+  --t-base:1.0625rem;
+  --t-md:clamp(1.0625rem,1rem + .35vw,1.22rem);
+  --t-big:clamp(1.7rem,1.05rem + 2.5vw,2.9rem);
+  --t-huge:clamp(2.2rem,1.1rem + 5vw,5rem);
+
+  --wrap:min(1240px,100% - 3.5rem);
+  --ease:cubic-bezier(.2,.6,.2,1);
+}
+
+/* ── base ─────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:var(--t-base);line-height:1.62;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img,canvas{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--plum);color:var(--paper)}
+:focus-visible{outline:2px solid var(--verm);outline-offset:3px}
+.skip{position:fixed;top:-100px;left:1rem;z-index:2000;background:var(--ink);color:var(--paper);
+  padding:.7rem 1.2rem;font-family:var(--grot);font-weight:600}
+.skip:focus{top:1rem}
+
+/* ── type ─────────────────────────────────── */
+h1,h2,h3{font-family:var(--grot);font-weight:700;letter-spacing:-.038em;line-height:1;text-wrap:balance}
+h1{font-size:var(--t-huge);letter-spacing:-.042em}
+h2{font-size:var(--t-big)}
+.wrap{width:var(--wrap);margin-inline:auto}
+.tag{font-family:var(--grot);font-weight:600;font-size:var(--t-sm);color:var(--plum);margin-bottom:1rem;display:block}
+.lede{font-size:var(--t-md);color:var(--ink-2);max-width:34em;margin-top:1.1rem}
+.fine{font-family:var(--grot);font-size:var(--t-sm);color:var(--ink-2)}
+
+/* ── masthead ─────────────────────────────── */
+.mast{position:fixed;top:0;left:0;right:0;z-index:60;height:58px;display:flex;align-items:center;
+  background:rgba(244,238,222,.88);backdrop-filter:saturate(140%);
+  border-bottom:1px solid transparent;transition:border-color .3s var(--ease)}
+.mast.stuck{border-bottom-color:var(--line)}
+/* The masthead spans the window rather than sitting inside the 1240px measure.
+   Contained, the CTA drifted 244px short of the edge on a wide screen; the
+   convention — and the reason it works — is that a top-right CTA sits exactly
+   where the eye finishes its first horizontal sweep. */
+.mast-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  width:100%;max-width:none;margin:0;padding-inline:clamp(1.1rem,2.2vw,2.25rem)}
+.wordmark{display:flex;align-items:center;gap:.55rem;font-family:var(--grot);font-weight:700;
+  font-size:1.06rem;letter-spacing:-.03em;white-space:nowrap}
+.wordmark img{height:26px;width:auto;   /* mark is 88.37:100, not square */
+  transform:translateY(-2px)}           /* its mass sits low; lift it off the text baseline */
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--verm);z-index:70}
+
+.cta{
+  font-family:var(--grot);font-weight:600;font-size:var(--t-sm);white-space:nowrap;
+  display:inline-flex;align-items:center;padding:.62rem 1.2rem;
+  background:var(--plum);color:var(--paper);border:2px solid var(--plum);
+  transition:background .22s var(--ease),color .22s var(--ease),border-color .22s var(--ease);
+}
+.cta:hover{background:var(--plum-d);border-color:var(--plum-d)}
+.cta-lg{padding:.95rem 1.9rem;font-size:var(--t-md)}
+.cta-ghost{background:transparent;color:var(--plum)}
+.cta-ghost:hover{background:var(--plum);color:var(--paper)}
+.cta-paper{background:var(--paper);color:var(--plum);border-color:var(--paper)}
+.cta-paper:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
+
+/* ── the alternating two-column rhythm ──────
+   Scroll lengths here are the speed control. The phone's travel and turn are
+   both keyed to how far apart the feature centres are, so stretching each
+   section by 25% makes the same movement take 25% more scrolling — i.e. it
+   moves at 0.8x. Change these three numbers together or the rhythm breaks. */
+.duo{
+  min-height:125svh;display:grid;align-items:center;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(2rem,5vw,5rem);padding-block:clamp(4rem,10vh,7rem);
+}
+.duo .copy{max-width:32rem}
+.duo.flip .copy{order:2}
+.duo .shot{display:flex;justify-content:center}
+.duo.flip .shot{order:1}
+.sep{height:1px;background:var(--line);width:var(--wrap);margin-inline:auto}
+/* The hero aligns on its HEADLINE, not on the block.
+
+   Centring the two columns is mathematically correct and looks wrong: the copy
+   is shorter than the phone, so the headline — the thing the eye anchors on —
+   started 95px below the top of the device. Align the tops instead, then lift
+   the copy by the kicker's height so the headline meets the phone's top edge. */
+/* The copy sits centred against the phone, and the hero is only as tall as its
+   content so there is no void beneath it.
+
+   The tension worth knowing about: the copy block is shorter than the phone, so
+   centring necessarily drops the headline below the phone's top edge. Bringing
+   the two closer in height is what shrinks that gap, which is why the hero's
+   phone is a little smaller than the ones further down the page. */
+.hero{padding-top:calc(58px + clamp(1.5rem,5vh,4rem));align-items:center;
+  min-height:auto;padding-bottom:clamp(3rem,9vh,6rem)}
+
+/* The phone rides the TOP of the row rather than its centre.
+
+   A fixed pixel nudge could not work here: the phone is capped by svh, so on a
+   short window it shrinks and — being centred — its top drops well below the
+   copy, while on a tall window it sits above. Measured at 1000x560 it was 74px
+   BELOW the kicker; at 1440x900, 50px above. Anchoring to the top makes it
+   land level at any height, and the small lift on top is purely optical.
+
+   Note the lift is on .device, not .shot: .shot carries the .up reveal class
+   and `.up.in{transform:none}` outranks it, so the same rule there did nothing
+   at all. */
+.hero .shot{align-self:start}
+.hero .shot .device{transform:translateY(-10px)}
+@media (max-width:900px){
+  .hero .shot{align-self:auto}
+  .hero .shot .device{transform:none}
+}
+.hero-name{font-family:var(--grot);font-weight:700;font-size:var(--t-sm);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--plum);
+  margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+.hero-name::after{content:'';flex:1;height:1px;background:var(--line);max-width:5rem}
+.hero .actions{margin-top:2rem;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
+.hero .note{margin-top:1.1rem}
+
+/* ── club rail ─────────────────────────────
+   Two identical rows side by side, each translating a full width,
+   so the loop is seamless. The rail itself has to be the flex
+   track — stacked rows break both the loop and the spacing. ── */
+.rail{
+  border-block:1px solid var(--line);padding-block:1.1rem;overflow:hidden;
+  background:var(--paper-2);display:flex;flex-wrap:nowrap;
+}
+.rail-row{display:flex;gap:2.6rem;padding-right:2.6rem;flex:0 0 auto;
+  animation:run 46s linear infinite}
+.rail:hover .rail-row{animation-play-state:paused}
+@keyframes run{to{transform:translateX(-100%)}}
+.rail-row span{font-family:var(--grot);font-weight:600;font-size:var(--t-sm);
+  color:var(--ink-2);white-space:nowrap}
+
+/* ── the beat: scraps pulled into the phone ── */
+.beat{position:relative;height:288vh}
+.beat-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;align-items:center;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem)}
+.beat-pin > .copy{max-width:32rem}
+.beat-stage{position:relative;display:flex;justify-content:center;align-items:center;height:100%}
+.scrap{
+  position:absolute;width:236px;background:#fbf9f4;border:1px solid var(--line-2);
+  padding:.55rem .7rem;font-family:var(--grot);z-index:3;
+  will-change:transform,opacity;box-shadow:0 1px 0 rgba(23,21,26,.05);
+}
+.scrap b{display:block;font-size:.6rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--plum);margin-bottom:.2rem}
+.scrap span{display:block;font-size:.82rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.scrap.shut{border-color:var(--verm)}
+.scrap.shut b,.scrap.shut span{color:var(--verm)}
+
+/* ── the curtain ──────────────────────────── */
+.curtain-zone{position:relative;height:188vh}
+.curtain-pin{position:sticky;top:0;height:100svh;overflow:hidden}
+.curtain{position:absolute;inset:0;background:var(--plum);color:var(--paper);
+  clip-path:inset(calc(50% - 116px) calc(50% - 86px));will-change:clip-path}
+.curtain-tag{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:172px;text-align:center;z-index:3}
+.curtain-tag b{display:block;font-family:var(--grot);font-weight:800;font-size:2.1rem;
+  line-height:1;letter-spacing:-.04em}
+.curtain-tag span{display:block;font-family:var(--grot);font-weight:500;font-size:var(--t-sm);
+  margin-top:.35rem;color:rgba(244,238,222,.72)}
+.curtain-body{position:absolute;inset:0;z-index:2;display:flex;align-items:center;opacity:0}
+.curtain-body h2{font-size:var(--t-huge);max-width:12em}
+.curtain-body .lede{color:rgba(244,238,222,.8)}
+
+/* ── the phone ────────────────────────────── */
+.device{
+  /* 37svh caps the phone to the window as well as to the column. Without it a
+     short window (a laptop with a lot of browser chrome) gets a phone taller
+     than the viewport: the top of the screen sits off-frame, so the tab row
+     is neither visible nor clickable. 300px still wins on any normal height. */
+  /* Fixed on desktop. The svh term used to shrink the phone on a shorter
+     window, so the same page showed a 190px phone on one laptop and a 300px
+     one on another — and because it is centred, a shorter phone also sat
+     lower. Proportion now holds across every desktop; the mobile rules below
+     still scale it to the viewport, which is where that is wanted. */
+  position:relative;width:min(300px,78vw);aspect-ratio:9/19.3;
+  background:var(--ink);border-radius:36px;padding:9px;flex-shrink:0;
+  box-shadow:0 24px 50px -28px rgba(23,21,26,.5);
+}
+.device-screen{position:relative;width:100%;height:100%;border-radius:28px;
+  overflow:hidden;background:#f9f4f8}
+/* no drawn-on notch: the captures are browser screenshots with no device
+   chrome of their own, and a fake notch just covered the app's header */
+canvas.app-shot{width:100%;height:100%;object-fit:cover}
+
+/* the embedded app: laid out at the width it is built for, then scaled.
+   Squeezing it instead would trip the app's own breakpoints. */
+.device.live{pointer-events:auto;transition:opacity .2s linear}
+
+/* Spotlight for the try-it phone — the feature-discovery shape: the page
+   dims, the target stays lit, one line of copy anchored to it, and it clears
+   itself. The embedded app looks exactly like the five static mockups above
+   it, and the guided arrows only run at >=901px, so nothing said this one
+   could be touched.
+
+   It is a FIXED element sized to the phone, dimming the page with a spread
+   shadow around its own (transparent) box. Two earlier shapes failed: a
+   caption as a flex child of .shot pushed the device down and moved it off
+   the landing the 3D handover is measured against, and putting the spread
+   shadow on the device itself let every later section paint straight over the
+   scrim, so the dimming stopped at the section boundary. Fixed and above the
+   sections, nothing can paint over it and nothing in the page moves. */
+.spot{position:fixed;z-index:55;border-radius:34px;pointer-events:none;
+  opacity:0;visibility:hidden;
+  box-shadow:0 0 0 9999px rgba(23,21,26,.55);
+  transition:opacity .45s var(--ease),visibility 0s linear .45s}
+/* In fast, out gently. The gate itself is not the lag — measured, the scrim
+   begins 15ms after the phone is ready — it was this fade: at .5s it did not
+   reach full until ~300ms later, which on a quick scroll reads as the phone
+   landing and then nothing happening. The exit keeps the slower curve. */
+.spot.on{opacity:1;visibility:visible;transition:opacity .04s linear,visibility 0s}
+.spot-say{position:absolute;left:50%;bottom:calc(100% + .95rem);transform:translateX(-50%);
+  white-space:nowrap;font-family:var(--grot);font-weight:600;font-size:var(--t-sm);
+  color:var(--paper);background:var(--plum);padding:.55rem .95rem}
+.spot-say::after{content:"";position:absolute;top:100%;left:50%;margin-left:-6px;
+  border:6px solid transparent;border-top-color:var(--plum)}
+/* flipped under the phone when the masthead would clip it — on a phone the
+   device sits high enough that the label lands behind the header */
+.spot.below .spot-say{bottom:auto;top:calc(100% + .95rem)}
+.spot.below .spot-say::after{top:auto;bottom:100%;
+  border-top-color:transparent;border-bottom-color:var(--plum)}
+/* Tighter on a handset: with the phone pinned there are only ~110px between
+   the masthead and the phone's top on a short screen, and the label plus a
+   .95rem gap and its tail needed 115. At .5rem it needs 107 and fits. */
+@media (max-width:900px){
+  .spot-say{font-size:.8rem;bottom:calc(100% + .5rem)}
+  .spot.below .spot-say{bottom:auto;top:calc(100% + .5rem)}
+}
+.demo-frame{position:absolute;top:0;left:0;width:412px;height:892px;border:0;
+  transform-origin:top left;background:#f9f4f8}
+
+/* ── the 3D phone ─────────────────────────── */
+#stage{position:fixed;inset:0;width:100vw;height:100svh;z-index:1;
+  pointer-events:none;opacity:0;transition:opacity .7s var(--ease)}
+#stage.lit{opacity:1}
+/* once the handover starts, opacity is driven per-frame by scroll, so the
+   transition has to get out of the way */
+#stage.handing{transition:none}
+.duo,.beat,.close{position:relative;z-index:2}
+/* The curtain sits BELOW the canvas (#stage is z-index 1) so the phone the
+   page has been following stays in front while the purple fills in behind it.
+   At z-index 2 it painted over the canvas and swallowed the phone whole
+   halfway through the expansion. */
+.curtain-zone{position:relative;z-index:0}
+
+/* The club rail and the hairline rules run the full width of the page, so with
+   the copy they would cut straight across the fixed 3D phone and bisect it.
+   They sit behind it instead — the canvas is transparent, so they still read
+   normally everywhere the phone is not. */
+.rail,.sep{position:relative;z-index:0}
+/* the DOM phones hold the column the 3D one is measured against */
+body.webgl .duo:not(.explore) .shot .device,
+body.webgl .beat-stage .device{visibility:hidden}
+/* ── the explore section, pinned ───────────
+   Tall section, sticky inner. The phone arrives, the handover completes, and
+   then it HOLDS while the guided pass runs — so the tour gets the visitor's
+   attention instead of competing with the scroll. The height is the whole
+   control: (height - 100svh) is how long it holds. 180vh leaves about eight tenths of a
+   screen of hold, which is enough to settle into the tour without the page
+   feeling stuck — the steps advance on clicks, not on scrolling, so extra
+   depth here buys nothing. Deliberately a pin and not a
+   scroll lock: hijacking the scroll disorients most people and strands anyone
+   on a keyboard, and this achieves the same thing without either. ── */
+.duo.explore{display:block;min-height:0;height:180vh;padding-block:0}
+.explore-pin{position:sticky;top:0;height:100svh;display:grid;align-items:center;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem)}
+@media (max-width:900px){
+  /* The hold is wanted on a handset too — it is the moment the page hands the
+     visitor the real app — but it cannot be the same box. Stacked, a 489px
+     phone and the ~450px copy block do not both fit a 100svh pin, exactly as
+     measured for the beat. So the same arrangement: the COPY leaves the pin
+     and reads first in normal flow, and only the phone pins. The phone keeps
+     the page's one phone size.
+
+     The hold is a spacer, NOT a section height in vh. The copy's height moves
+     with the viewport, so a fixed 180vh would spend most of itself on the copy
+     on a short screen and hold far too long on a tall one; the spacer is the
+     hold exactly, whatever the copy does. 62vh, a little under the desktop
+     pin's 80: there is no seven-step tour to settle into here (guide.js is
+     >=901px), so the hold only has to be long enough to read the mark and
+     reach the phone. */
+  .duo.explore{height:auto;padding-block:clamp(3rem,8vh,5rem) 0}
+  .explore-pin{display:contents}
+  .duo.explore .copy{width:var(--wrap);margin-inline:auto}
+  .duo.explore .shot{position:sticky;top:0;height:100svh;margin-top:1.25rem;
+    align-items:center;
+    /* 58px clears the masthead. The extra 3.3rem is the spotlight's label:
+       centring in the space below the header alone puts the phone's top at
+       104px on a 360x640 screen, and the label needs 107px above it, so it
+       flipped underneath and was cut off by the bottom edge instead. Pushing
+       the phone down by about the label's height gives it room at every
+       handset height measured (600, 640, 667, 844). */
+    padding-top:calc(58px + 3.3rem)}
+  .duo.explore::after{content:"";display:block;height:62vh}
+}
+
+/* ── the guided exploration ────────────────
+   The annotation lives in the gap beside the phone and reaches in with an
+   arrow; nothing is drawn over the app. Nothing is dimmed and nothing is
+   blocked — the layer is pointer-events:none, so every click reaches the
+   app underneath. ── */
+.guide{position:absolute;inset:0;pointer-events:none;z-index:4;
+  opacity:0;transition:opacity .3s var(--ease)}
+.guide.on{opacity:1}
+.guide-arrow{position:absolute;left:0;top:0;overflow:visible}
+/* dotted, not solid: an annotation drawn over the product rather than a
+   piece of the product */
+/* the pulse on the live control — flat outline, no blur, no glow */
+.guide-ring{position:absolute;border:2px solid var(--plum);pointer-events:none;opacity:0}
+.guide.on .guide-ring{animation:gring 1.9s var(--ease) infinite}
+@keyframes gring{
+  0%   {opacity:0;   transform:scale(1)}
+  18%  {opacity:.95; transform:scale(1)}
+  70%  {opacity:0;   transform:scale(1.22)}
+  100% {opacity:0;   transform:scale(1.22)}
+}
+@media (prefers-reduced-motion:reduce){ .guide.on .guide-ring{animation:none;opacity:.8} }
+.guide-line{stroke:var(--plum);stroke-width:2;stroke-linecap:round;
+  stroke-dasharray:0.5 6}
+.guide-head{fill:var(--plum)}
+.guide.done .guide-arrow{display:none}
+.guide-say{position:absolute;margin:0;font-family:var(--grot);font-weight:700;
+  font-size:.92rem;line-height:1.3;color:var(--ink);text-align:right;
+  /* a label on the phone's right reads from its own left edge */
+  padding:.1rem 0;
+  transition:left .34s var(--ease),top .34s var(--ease)}
+.guide-say.from-right{text-align:left}
+.guide-n{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:.62rem;font-weight:500;letter-spacing:.08em;color:var(--plum);
+  margin-bottom:.12rem}
+.guide-t{display:block}
+.guide-sub{display:block;font-weight:500;font-size:.76rem;line-height:1.35;
+  color:var(--ink-2);margin-top:.22rem}
+.guide.done .guide-say{border-right-color:transparent;color:var(--ink-2)}
+/* the one thing here that takes a click */
+.guide-skip{position:absolute;left:12px;bottom:12px;pointer-events:auto;
+  font-family:var(--grot);font-weight:600;font-size:.7rem;letter-spacing:.04em;
+  color:var(--ink-3);background:none;border:0;border-bottom:1px solid var(--line-2);
+  padding:0 0 .1rem;cursor:pointer}
+.guide-skip:hover{color:var(--ink)}
+.guide.done .guide-skip{display:none}
+
+@media (prefers-reduced-motion:reduce){ .guide,.guide-say{transition:none} }
+
+/* ── close ────────────────────────────────── */
+.close{background:var(--plum);color:var(--paper);min-height:82svh;
+  display:flex;align-items:center;padding-block:5rem}
+.close h2{font-size:var(--t-huge);max-width:11em;margin-bottom:2rem}
+.close .lede{color:rgba(244,238,222,.82)}
+.colophon{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule-paper);
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  font-family:var(--grot);font-size:var(--t-sm);color:rgba(244,238,222,.72)}
+.colophon img{height:16px;opacity:.6}
+
+/* ── reveal ───────────────────────────────── */
+.up{opacity:0;transform:translateY(16px)}
+.up.in{opacity:1;transform:none;transition:opacity .55s ease,transform .6s var(--ease)}
+.up.in.d1{transition-delay:.07s}
+.up.in.d2{transition-delay:.14s}
+
+/* ── responsive ───────────────────────────── */
+@media (max-width:900px){
+  :root{--wrap:min(100% - 2.5rem,680px)}
+  .duo,.beat-pin{grid-template-columns:1fr;gap:2.25rem}
+  .duo{min-height:auto;padding-block:clamp(3rem,8vh,5rem)}
+  .duo .copy,.duo.flip .copy,.duo .shot,.duo.flip .shot{order:0;max-width:none}
+  .duo .shot{margin-top:.5rem}
+  .beat{height:200vh}
+  .beat-pin{align-content:center;gap:1.25rem}
+  /* A 489px phone plus the ~235px copy block cannot both fit a 640px pinned
+     screen — measured 72px of the phone cut off the bottom at 360x600, 52 at
+     360x640, 22 even at 360x700. Shrinking the phone fixed the clipping and
+     made it 27% smaller than every other phone on the page, which was worse.
+     So on a phone the COPY leaves the pin: it reads first in normal flow, and
+     only the stage pins. The phone keeps the page's one phone size. */
+  .beat-pin{display:contents}
+  .beat .copy{width:var(--wrap);margin-inline:auto;padding-top:calc(58px + 1.25rem)}
+  .beat-stage{position:sticky;top:0;height:100svh;min-height:0;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    padding-top:58px}   /* centre in the space BELOW the masthead, not the whole screen */
+  .device{width:min(250px,60vw)}
+  .scrap{width:172px;padding:.45rem .55rem}
+  .scrap span{font-size:.74rem}
+  .scrap b{font-size:.55rem}
+  /* Stacked, the phone and the curtain fought each other: the beat's phone
+     unpins with a full viewport of exit still to travel while the curtain is
+     already on screen. Half a viewport of margin separated them but left a
+     dead stretch of paper to scroll through. The phone now fades on its way
+     out (see `exit` in main.js), so they only need a short beat between them.
+     margin, not extra .beat height, because offsetTop absorbs it and both
+     animations keep their original pacing. */
+  .curtain-zone{height:130vh;margin-top:-24vh}
+}
+@media (max-width:560px){
+  :root{--wrap:min(100% - 2rem,560px)}
+  /* Type: measured at 360px the h1 came out 35.6px and the lede 17.3px, which
+     read as shouting on a phone. These bring them to ~29.5px and ~16.3px. */
+  :root{
+    --t-huge:clamp(1.85rem,.9rem + 4.2vw,2.4rem);
+    --t-big:clamp(1.45rem,.95rem + 2vw,1.9rem);
+    --t-md:1.02rem;
+  }
+  /* Masthead: at 360px the wordmark + CTA needed 324.9px against 324.8px
+     available, so both wrapped to two lines and overflowed the 58px bar onto
+     the page below. Shrink them so the row fits with room to spare. */
+  .mast{background:var(--paper)}   /* was 88% alpha with no blur — text ghosted through */
+  .mast-in{gap:.6rem;padding-inline:.9rem}
+  .wordmark{font-size:.95rem;gap:.45rem}
+  .wordmark img{height:22px}
+  .mast .cta{font-size:.8rem;padding:.5rem .85rem}
+  .hero .actions .cta{width:100%;justify-content:center}
+  .device{width:min(228px,64vw)}
+  .scrap{width:148px}
+  .colophon{justify-content:flex-start}
+}
+
+/* ── reduced motion ───────────────────────── */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.001ms!important}
+  .up{opacity:1!important;transform:none!important}
+  #stage{display:none}
+  body.webgl .duo:not(.explore) .shot .device,
+  body.webgl .beat-stage .device{visibility:visible}
+  .beat{height:auto}
+  .beat-pin{position:relative;height:auto;padding-block:4rem}
+  .scrap{position:relative;transform:none!important;opacity:1!important;width:auto;margin-bottom:.5rem}
+  .beat-stage{flex-direction:column;gap:.5rem;align-items:stretch;height:auto}
+  .curtain-zone{height:auto}
+  .curtain-pin{position:relative;height:auto}
+  .duo.explore{padding-block:clamp(3rem,8vh,5rem)}
+  .duo.explore .shot{position:static;height:auto;padding-top:0}
+  .duo.explore::after{display:none}
+  .curtain{position:relative;clip-path:none!important;padding-block:4rem}
+  .curtain-tag{display:none}
+  .curtain-body{position:relative;opacity:1!important}
+  .rail-row{transform:none!important}
+}

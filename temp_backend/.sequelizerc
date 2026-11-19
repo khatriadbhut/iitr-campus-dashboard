@@ -1,0 +1,9 @@
+const path = require('path');
+
+// sequelize-cli wiring. Config reads DATABASE_URL from env; migrations live under temp_backend/migrations.
+module.exports = {
+  config: path.resolve(__dirname, 'config', 'sequelize-cli.js'),
+  'migrations-path': path.resolve(__dirname, 'migrations'),
+  'seeders-path': path.resolve(__dirname, 'seeders'),
+  'models-path': path.resolve(__dirname, 'database', 'schemas'),
+};

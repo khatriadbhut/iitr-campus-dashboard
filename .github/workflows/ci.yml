@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main, consolidation, 'feat/**', 'deploy/**']
+  pull_request:
+
+jobs:
+  backend-tests:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: temp_backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: npm
+          cache-dependency-path: temp_backend/package-lock.json
+      - run: npm ci
+      - name: Ingestion pipeline tests
+        run: node services/eventIngestion/__tests__/pipeline.test.js
+      - name: Gmail source tests
+        run: node services/eventIngestion/source/__tests__/gmail.test.js
+      - name: Academic-calendar parser tests
+        run: node services/academicCalendar/__tests__/parser.test.js
+
+      # Deadline resolution: the calendar fallback, and the stated-deadline backstop. Both pin real
+      # production misses (Course Drop's derived date; the GCI miss and the UPLB referee-deadline trap),
+      # so a regression here silently costs students a countdown.
+      - name: Deadline resolution tests
+        run: |
+          node services/eventIngestion/__tests__/calendarDeadline.test.js
+          node services/eventIngestion/__tests__/statedDeadline.test.js
+
+      # What earns the pinned IMPORTANT band. The band is only useful while it stays scarce — an
+      # earlier rule pinned 60% of notices — so its edges are pinned here case by case.
+      - name: Notice importance tests
+        run: node services/eventIngestion/__tests__/importance.test.js
+
+  frontend-build:
+    name: Frontend build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: npm
+      - run: npm ci
+      # advisory: repo has some pre-existing lint debt; report it but don't block the pipeline yet
+      - name: Lint (advisory)
+        run: npm run lint
+        continue-on-error: true
+      - name: Production build must compile
+        run: npm run build
+        env:
+          VITE_API_URL: /api
+          VITE_IMGBB_API_KEY: ci-dummy

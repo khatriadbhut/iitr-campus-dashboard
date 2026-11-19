@@ -1,0 +1,440 @@
+[
+  {
+    "file": "01_19e639b10785fc03.png",
+    "id": "19e639b10785fc03",
+    "subject": "Welcoming New Librarian, Dr. Nihar K Patra, to IIT Roorkee",
+    "from": "Institute CentralLibrary",
+    "sentDate": "2026-05-26T09:24:58.000Z",
+    "missing": [
+      "venue"
+    ],
+    "topic": "other",
+    "tags": [],
+    "text_date": "2025-05-25",
+    "text_venue": null,
+    "poster_filename": "image.png",
+    "body_excerpt": "Dear All, Greetings from MGCL ! It's my pleasure to inform you and welcome Dr. Nihar Kant Patra who has joined MGCL, IIT Roorkee as the Librarian on 25 May 2025. With over 28 years of experience in librarianship and academic information services, he has held key leadership positions, including the m",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "02_19e2b812ab50bf5d.jpg",
+    "id": "19e2b812ab50bf5d",
+    "subject": "Two-Day Drone Workshop on 25-26 May 2026",
+    "from": "Head Civil Engineering",
+    "sentDate": "2026-05-15T11:55:09.000Z",
+    "missing": [
+      "venue"
+    ],
+    "topic": "workshop",
+    "tags": [],
+    "text_date": "2026-05-26",
+    "text_venue": null,
+    "poster_filename": "IIT Roorkee (5).jpg.jpeg",
+    "body_excerpt": "Dear All UG, PG and PhD students, The Drone Technology Lab (Geospatial Engineering Group), Department of Civil Engineering, IIT Roorkee is organizing a Two-Day Drone Workshop on 25- 26 May 2026 at the Geospatial Lab, Civil Engineering Department, IIT Roorkee. The workshop will cover drone technology",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "03_19dd7b5139a7a8ab.jpg",
+    "id": "19dd7b5139a7a8ab",
+    "subject": "Re: Guest Expert Lecture by Shri Deepak Ushadevi, Managing Director & CEO, Ciel & Terre India on Apr",
+    "from": "Head Hydro and Renewable Energy",
+    "sentDate": "2026-04-29T05:25:55.000Z",
+    "missing": [
+      "venue"
+    ],
+    "topic": "lecture",
+    "tags": [],
+    "text_date": "2026-04-29",
+    "text_venue": null,
+    "poster_filename": "Guest Lecture April 29, 2026 Shri Deepak Ushadevi.JPG",
+    "body_excerpt": "This is just a gentle reminder. May please join.",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "04_19db0e6cc7d619b9.jpg",
+    "id": "19db0e6cc7d619b9",
+    "subject": "Screening of Chhichhore",
+    "from": "Cinema Club",
+    "sentDate": "2026-04-21T16:30:04.000Z",
+    "missing": [
+      "date"
+    ],
+    "topic": "movie",
+    "tags": [],
+    "text_date": null,
+    "text_venue": "Convocation Hall",
+    "poster_filename": "chhichhore.jpg",
+    "body_excerpt": "Dear IITR Janta, The Cinema Club, IIT Roorkee, presents a special Farewell Screening of Chhichhore (2019) for all graduating students, in collaboration with the Hostel Council . Join us for a heartwarming film that beautifully captures the essence of college life, friendship, struggles, memories, an",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "05_19d9fa93ff344598.jpg",
+    "id": "19d9fa93ff344598",
+    "subject": "Last Laugh: A Farewell Stand-Up Show | Today at 6 PM",
+    "from": "General Secretary Cultural Affairs",
+    "sentDate": "2026-04-18T08:13:55.000Z",
+    "missing": [
+      "date",
+      "venue"
+    ],
+    "topic": "other",
+    "tags": [
+      "relDate"
+    ],
+    "text_date": null,
+    "text_venue": null,
+    "poster_filename": "LAST_LAUGH.jpeg",
+    "body_excerpt": "Greetings everyone, The Comedy Section warmly invites you to *“Last Laugh”*, a special stand-up comedy show happening today, *18th April at 6 PM.* This show marks a memorable moment as our final-year students take the stage for their *final performance before graduation*. It’s an evening dedicated t",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "06_19d8b2cb116674c5.jpg",
+    "id": "19d8b2cb116674c5",
+    "subject": "Invitation regarding the upcoming stage play \"Jasma Odan\" by Dramatics Section, IIT Roorkee on April",
+    "from": "Associate Dean of Students Welfare",
+    "sentDate": "2026-04-14T08:44:31.000Z",
+    "missing": [
+      "venue"
+    ],
+    "topic": "cultural",
+    "tags": [
+      "relDate"
+    ],
+    "text_date": "2026-04-14",
+    "text_venue": null,
+    "poster_filename": "IMG-20260414-WA0007.jpg",
+    "body_excerpt": "Dear Students, Faculty Colleagues, and Staff members, The Dramatics Section, IIT Roorkee, is organizing a stage play event today (i.e., 14th April, 2026) at 7:15 PM in the MAC Auditorium. We warmly welcome you to this event. Your presence would be an honor for us. Kindly please find the official pos",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "07_19d86e9d13f8b8c5.jpg",
+    "id": "19d86e9d13f8b8c5",
+    "subject": "Fwd: Invitation to Stage Play by Dramatics Section IIT Roorkee",
+    "from": "General Secretary Cultural Affairs",
+    "sentDate": "2026-04-13T12:54:37.000Z",
+    "missing": [
+      "date"
+    ],
+    "topic": "cultural",
+    "tags": [],
+    "text_date": null,
+    "text_venue": "MAC",
+    "poster_filename": "WhatsApp Image 2026-04-12 at 8.53.30 PM.jpeg",
+    "body_excerpt": "Greetings from the Dramatics Section, IIT Roorkee! We invite you to our event! “है ये गरीब ओड़न की प्रेमगाथा, या सिर्फ किस्मत के लिखे किसी अध्याय का एहसास? सिंहासन का डगमगाना सिर्फ खेल ही था, या थी ये हमारे कालचक्र की चाल?” कुछ कथाएँ शब्दों में नहीं, नारी की महक में ढलती हैं। कुछ स्त्रियाँ स्मृति मे",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "08_19d30b1c0609a7f0.jpg",
+    "id": "19d30b1c0609a7f0",
+    "subject": "Theatre and Acting Workshop in Collaboration with SPIC MACAY🎭✨",
+    "from": "General Secretary Cultural Affairs",
+    "sentDate": "2026-03-27T19:04:28.000Z",
+    "missing": [
+      "date"
+    ],
+    "topic": "workshop",
+    "tags": [],
+    "text_date": null,
+    "text_venue": "OP Jain Auditorium 👥 Open for all UG and PG students 🔗Regi",
+    "poster_filename": "1000054309.jpg",
+    "body_excerpt": "Dear Students, The Dramatics Section, in collaboration with SPIC MACAY, is excited to announce a *Theatre and acting Workshop *🎭✨, to be conducted by the renowned Naya Theatre Group. 🌟 *No pre-requisite required!* If you are someone who enjoys creativity, expression, and vibrant energy, this is th",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "09_19cd0bd31715ebfc.png",
+    "id": "19cd0bd31715ebfc",
+    "subject": "Student Interaction Session on E-Mobility",
+    "from": "General Secretary AA UG",
+    "sentDate": "2026-03-09T03:53:24.000Z",
+    "missing": [
+      "date"
+    ],
+    "topic": "other",
+    "tags": [],
+    "text_date": null,
+    "text_venue": "MAC",
+    "poster_filename": "E-Mobility.png",
+    "body_excerpt": "Dear All, The National Service Scheme (NSS) in collaboration with the Academic Council invites you to attend a student interaction session titled E-Mobility by Mr. Sushil Pakala Reddy, an alumnus of IIT Bombay and founder of the sustainability outreach initiative The SunPedal Ride. During the sessio",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "10_19c47980f7da5556.png",
+    "id": "19c47980f7da5556",
+    "subject": "Invitation: Guest Lecture on Road Safety Awareness | Road Safety Month | NSS IITR",
+    "from": "National Service Scheme - NSS IIT Roorke",
+    "sentDate": "2026-02-10T12:46:35.000Z",
+    "missing": [
+      "date",
+      "venue"
+    ],
+    "topic": "lecture",
+    "tags": [],
+    "text_date": null,
+    "text_venue": null,
+    "poster_filename": "GUEST_LECTURE_ROAD_SAFETY.png",
+    "body_excerpt": "Dear *IIT Roorkee Community* , As part of *Road Safety Month*, *NSS**, IIT Roorkee* is organizing a *Guest Lecture on Road Safety Awareness* with the objective of promoting safe road practices and fostering a more responsible and safer campus environment. The session aims to enhance awareness regard",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "11_19c46dc6ae550872.png",
+    "id": "19c46dc6ae550872",
+    "subject": "Team Robocon IITR Recruitment Test 2026",
+    "from": "General Secretary Technical Affairs",
+    "sentDate": "2026-02-10T09:18:05.000Z",
+    "missing": [
+      "date"
+    ],
+    "topic": "recruitment",
+    "tags": [],
+    "text_date": null,
+    "text_venue": "APJ-004",
+    "poster_filename": "1000058651.png",
+    "body_excerpt": "Dear Freshers, Team Robocon IITR is excited to announce its recruitment drive! If technology excites you, design inspires you, or space robotics sparks your curiosity 🤖, this is your chance to be part of a passionate team building innovative robotic systems and competing on national and internation",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "12_19c18ccfada587fa.jpg",
+    "id": "19c18ccfada587fa",
+    "subject": "Recruitment Test - IIT Roorkee Motorsports",
+    "from": "General Secretary Technical Affairs",
+    "sentDate": "2026-02-01T10:40:34.000Z",
+    "missing": [
+      "venue"
+    ],
+    "topic": "recruitment",
+    "tags": [],
+    "text_date": "2026-02-01",
+    "text_venue": null,
+    "poster_filename": "WhatsApp Image 2026-01-31 at 15.42.59.jpeg",
+    "body_excerpt": "ITS YOUR TURN TO TAKE THE WHEEL. 🏎️💨 Here's your chance to be a part of the more than a decade old legacy of this team. If you are looking to be the best version of yourself in whatever you have a knack for, just walk in and put your acumen to the test. We are recruiting across 4 verticals. See wh",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "13_19bf775fff97fbad.png",
+    "id": "19bf775fff97fbad",
+    "subject": "Recruitment Talk | MaRS IITR",
+    "from": "General Secretary Technical Affairs",
+    "sentDate": "2026-01-25T23:18:13.000Z",
+    "missing": [
+      "date",
+      "venue"
+    ],
+    "topic": "recruitment",
+    "tags": [],
+    "text_date": null,
+    "text_venue": null,
+    "poster_filename": "Frame 16-5.png",
+    "body_excerpt": "Hello Freshers, Models and Robotics Section (MaRS), IIT Roorkee is excited to announce its Recruitment Talk for first-year undergraduate students. If you are interested in robotics, artificial intelligence, automation, or emerging technologies, or if you are simply curious about how intelligent syst",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "14_19bd6821978e4bb3.jpg",
+    "id": "19bd6821978e4bb3",
+    "subject": "Blender Workshop (3D Design) by Design Studio",
+    "from": "General Secretary Technical Affairs",
+    "sentDate": "2026-01-19T13:45:17.000Z",
+    "missing": [
+      "date",
+      "venue"
+    ],
+    "topic": "workshop",
+    "tags": [],
+    "text_date": null,
+    "text_venue": null,
+    "poster_filename": "IMG_6665.jpeg",
+    "body_excerpt": "✨ NEW TO 3D? THIS IS FOR YOU! 🚀 Ever wanted to create cool 3D models but didn’t know where to start? This Beginner-Friendly 3D Workshop is your perfect entry into the 3D world! 📍 APJ-003 📅 20th Jan ⏰ 6:30 PM No experience needed! We’ll start from absolute basics and guide you step-by-step!! 🎒 Wh",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "15_19c13da27596b50c.jpg",
+    "id": "19c13da27596b50c",
+    "subject": "REMINDER! काव्यांजलि हेतु आमंत्रण",
+    "from": "General SecretaryCA",
+    "sentDate": "2026-01-31T11:38:13.000Z",
+    "missing": [
+      "date",
+      "venue"
+    ],
+    "topic": "other",
+    "tags": [
+      "hindi"
+    ],
+    "text_date": null,
+    "text_venue": null,
+    "poster_filename": "Kavyanjali 2026.jpeg",
+    "body_excerpt": "Greetings everyone! Just a gentle reminder to join us this evening for Kavyanjali —a soulful gathering where words come alive and emotions find their voice. The Kshitij family invites you to witness these beautiful expressions. 🗓 Today, January 31st 🕕 6:00 PM 📍 MAC Auditorium For friends who cann",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "16_19c1304595dc4fbb.jpg",
+    "id": "19c1304595dc4fbb",
+    "subject": "[6PM Today APJAKB-104] Beyond Placements: Meet the alumni who paved their own paths",
+    "from": "Vivekananda Student Circle",
+    "sentDate": "2026-01-31T07:44:22.000Z",
+    "missing": [
+      "date",
+      "venue"
+    ],
+    "topic": "other",
+    "tags": [
+      "relDate",
+      "oddVenue"
+    ],
+    "text_date": null,
+    "text_venue": null,
+    "poster_filename": "IMG-20260127-WA0021.jpg",
+    "body_excerpt": "Namaste! *Success isn’t just about the paycheck; it’s about the impact. Are you ready to see how?* This is a final reminder for our alumni interaction, *\"Redefining Success: Building Careers that Build Bharat,\"* happening this afternoon. *Whether you are curious about social entrepreneurship, academ",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "17_19c08338b03afd3e.jpg",
+    "id": "19c08338b03afd3e",
+    "subject": "[6:00 to 7:30 pm in APJ-104] Alumni Panel Discussion on Redefining Success: Building Careers that Bu",
+    "from": "Vivekananda Student Circle",
+    "sentDate": "2026-01-29T05:20:18.000Z",
+    "missing": [
+      "date"
+    ],
+    "topic": "other",
+    "tags": [
+      "oddVenue"
+    ],
+    "text_date": null,
+    "text_venue": "APJ",
+    "poster_filename": "panel_discussion_updated.jpeg",
+    "body_excerpt": "Namaste Everyone, Vivekananda Student Circle warmly invites you to an inspiring alumni interaction, *“Redefining Success: Building Careers that Build Bharat”,* an exclusive session designed especially for undergraduate students. *Get a chance to interact and have a direct conversation with young alu",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "18_19c462f2d06b9979.png",
+    "id": "19c462f2d06b9979",
+    "subject": "Invitation to ‘Only Jokes’ Show & Comedy Section Intro Talk",
+    "from": "General SecretaryCA",
+    "sentDate": "2026-02-10T06:11:56.000Z",
+    "missing": [
+      "date",
+      "venue"
+    ],
+    "topic": "lecture",
+    "tags": [],
+    "text_date": null,
+    "text_venue": null,
+    "poster_filename": "OnlyJokesPoster.png",
+    "body_excerpt": "Comedy Section IITR presents an evening full of laughter and fun! We warmly invite you to watch our show “Only Jokes” and attend the Comedy Section’s Introductory Talk at the MAC Auditorium at 7:00 PM today . Whether you love stand-up comedy, enjoy light-hearted performances, or simply want to unwin",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "19_19cc31f31e79e2eb.png",
+    "id": "19cc31f31e79e2eb",
+    "subject": "Screening of Vadh 2",
+    "from": "Cinema Club",
+    "sentDate": "2026-03-06T12:26:16.000Z",
+    "missing": [
+      "date"
+    ],
+    "topic": "movie",
+    "tags": [],
+    "text_date": null,
+    "text_venue": "Convocation Hall",
+    "poster_filename": " vadh2 .png",
+    "body_excerpt": "Dear IITR Janta, Cinema Club presents Vadh 2, a police officer investigates a shocking prison crime, as the lives of a widowed guard and a inmate intertwine, revealing a complex web of morality and redemption. Join us for an engaging and compelling screening that explores human dilemmas, choices, an",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  },
+  {
+    "file": "20_19e43eb90f5248de.jpg",
+    "id": "19e43eb90f5248de",
+    "subject": "Fwd: Invite: Wiley ONOS researcher event (21 May 2026)",
+    "from": "Institute CentralLibrary",
+    "sentDate": "2026-05-20T05:45:10.000Z",
+    "missing": [
+      "venue"
+    ],
+    "topic": "other",
+    "tags": [],
+    "text_date": "2026-05-21",
+    "text_venue": null,
+    "poster_filename": "1599fa77-b7be-4dff-a05a-90de6b30c654.jpeg",
+    "body_excerpt": "Dear Students, Greetings from MGCL! You might be aware about ONOS APS Support. Here is the details of a related event on how to publish open access with Wiley using ONOS APC Support. Team MGCL -- Dr. Sanjeev K Sunny Librarian (Officiating), Mahatma Gandhi Central Library, IIT Roorkee, Roorkee - 2476",
+    "expected": {
+      "date": null,
+      "venue": null,
+      "note": "fill by eyeballing the poster image if you want a hard assertion"
+    }
+  }
+]

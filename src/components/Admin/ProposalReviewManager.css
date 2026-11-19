@@ -1,0 +1,119 @@
+.pr-wrap { display: flex; flex-direction: column; gap: 14px; font-family: 'Roboto', sans-serif; }
+
+.pr-head { display: flex; align-items: center; justify-content: space-between; }
+.pr-head-actions { display: flex; gap: 8px; align-items: center; }
+.pr-poster { display: block; margin: 4px 0 10px; border-radius: 10px; overflow: hidden; max-width: 240px; border: 1px solid var(--grey-200, #e8e2e6); }
+.pr-poster img { display: block; width: 100%; height: auto; max-height: 260px; object-fit: cover; }
+
+/* super-admin "save as rule" */
+.pr-rule-trigger { align-self: flex-end; background: none; border: 1px dashed var(--brand-purple, #713364); color: var(--brand-purple, #713364); border-radius: 8px; padding: 4px 10px; font-size: 0.74rem; font-weight: 700; cursor: pointer; }
+.pr-rule { margin: 2px 0 10px; padding: 12px; border-radius: 10px; background: #7133640d; border: 1px solid #71336433; display: flex; flex-direction: column; gap: 8px; }
+.pr-rule-title { font-size: 0.82rem; font-weight: 800; color: var(--brand-purple, #713364); }
+.pr-rule-row { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+.pr-rule-sel { width: auto; padding: 4px 8px; }
+.pr-rule-preview { font-size: 0.8rem; color: var(--brand-black, #1a1518); background: #fff; border-radius: 8px; padding: 8px 10px; }
+.pr-rule-preview ul { margin: 6px 0 0; padding-left: 16px; color: var(--grey-600, #6b6069); }
+.pr-rule-preview li { font-size: 0.75rem; }
+.pr-desc { resize: vertical; min-height: 38px; font-family: inherit; line-height: 1.4; }
+.pr-unverified { background: #fdecea !important; color: #c62828 !important; }
+.pr-title { display: flex; align-items: center; gap: 8px; color: var(--brand-black, #1a1518); font-size: 1rem; }
+.pr-count { background: var(--brand-purple, #713364); color: #fff; border-radius: 999px; font-size: 0.72rem; font-weight: 800; padding: 2px 9px; }
+.pr-refresh { display: inline-flex; align-items: center; gap: 6px; }
+
+.pr-alert { display: flex; align-items: center; gap: 8px; background: #fdecec; color: #c62828; border: 1.5px solid #c6282840; border-radius: 12px; padding: 10px 14px; font-size: 0.82rem; font-weight: 600; }
+
+.pr-filter { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.pr-filter::-webkit-scrollbar { display: none; }
+.pr-fbtn { flex-shrink: 0; border-radius: 999px; border: 1.5px solid var(--grey-200, #e5e0e3); background: #fff; color: var(--grey-600, #555); padding: 6px 13px; font-size: 0.76rem; font-weight: 800; cursor: pointer; transition: all 0.16s ease; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.pr-fbtn.active { background: var(--brand-purple, #713364); border-color: var(--brand-purple, #713364); color: #fff; }
+.pr-fcount { font-size: 0.68rem; opacity: 0.85; }
+
+.pr-empty { display: flex; align-items: center; gap: 8px; color: var(--grey-500, #888); font-size: 0.88rem; padding: 20px; justify-content: center; }
+.pr-muted { color: var(--grey-500, #888); }
+
+.pr-card { display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border: 1.5px solid var(--grey-200, #e5e0e3); border-radius: 14px; background: #fff; }
+
+.pr-card-top { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.pr-type { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; padding: 3px 8px; border-radius: 6px; }
+.t-events { color: #1565c0; background: #1565c012; }
+.t-opportunities { color: #8B6914; background: #8B691412; }
+.t-info { color: var(--grey-600, #555); background: var(--grey-100, #f2eef0); }
+/* The merged Notices bucket. Opportunity-vs-info is still shown per card, but the queue no longer
+   splits on it — see bucketOf() for why. */
+.t-notices { color: #8B6914; background: #8B691412; }
+.t-calendar { color: #6d28d9; background: #6d28d912; }
+.t-lifecycle { color: #d84315; background: #d8431512; }
+.pr-kind { font-size: 0.66rem; font-weight: 700; color: var(--grey-500, #888); text-transform: capitalize; }
+.pr-src { display: inline-flex; align-items: center; gap: 3px; font-size: 0.66rem; font-weight: 800; padding: 3px 7px; border-radius: 6px; margin-left: auto; }
+.pr-src.llm { color: var(--brand-purple, #713364); background: #71336412; }
+.pr-src.rules { color: var(--grey-500, #888); background: var(--grey-100, #f2eef0); }
+.pr-flag { font-size: 0.64rem; font-weight: 800; color: #d84315; background: #d8431512; padding: 3px 7px; border-radius: 6px; }
+.pr-rc { font-size: 0.62rem; font-weight: 700; color: #b26a00; background: #b26a0010; padding: 2px 6px; border-radius: 5px; }
+
+.pr-input { width: 100%; border: 1.5px solid var(--grey-200, #e5e0e3); border-radius: 9px; padding: 8px 10px; font-size: 0.86rem; font-family: inherit; color: var(--brand-black, #1a1518); background: #fff; }
+.pr-input:focus { outline: none; border-color: var(--brand-purple, #713364); }
+.pr-title-in { font-weight: 700; font-size: 0.95rem; }
+
+.pr-fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 14px; align-items: end; }
+.pr-field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.pr-field.pr-wide { grid-column: 1 / -1; }
+.pr-field > span { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; color: var(--grey-500, #888); }
+.pr-hint { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--grey-400, #a99fa6); }
+
+/* options bar (all-day toggle + save-as-rule) sits between the title and the field grid */
+.pr-optbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pr-optbar .pr-rule-trigger { margin-left: auto; align-self: center; }
+
+/* all-day toggle switch (matches the create-event all-day concept, styled as a switch) */
+.pr-toggle { display: inline-flex; align-items: center; gap: 9px; cursor: pointer; user-select: none; }
+.pr-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.pr-toggle-track { position: relative; flex-shrink: 0; width: 38px; height: 22px; border-radius: 999px; background: var(--grey-200, #d8d2d6); transition: background 0.16s ease; }
+.pr-toggle-thumb { position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: transform 0.16s ease; }
+.pr-toggle input:checked + .pr-toggle-track { background: var(--brand-purple, #713364); }
+.pr-toggle input:checked + .pr-toggle-track .pr-toggle-thumb { transform: translateX(16px); }
+.pr-toggle input:focus-visible + .pr-toggle-track { outline: 2px solid var(--brand-purple, #713364); outline-offset: 2px; }
+.pr-toggle-label { font-size: 0.82rem; font-weight: 700; color: var(--brand-black, #1a1518); }
+
+.pr-cats { display: flex; flex-wrap: wrap; gap: 6px; }
+.pr-cat { border-radius: 999px; border: 1.5px solid var(--grey-200, #e5e0e3); background: #fff; color: var(--grey-600, #555); padding: 4px 11px; font-size: 0.74rem; font-weight: 700; cursor: pointer; transition: all 0.14s ease; }
+.pr-cat.active { background: var(--brand-purple, #713364); border-color: var(--brand-purple, #713364); color: #fff; }
+
+.pr-meta { display: flex; gap: 10px; font-size: 0.72rem; color: var(--grey-500, #888); }
+.pr-supersedes { color: #d84315; font-weight: 700; }
+
+.pr-cal-choice { display: flex; flex-direction: column; gap: 6px; background: var(--grey-100, #f7f4f6); border-radius: 10px; padding: 10px 12px; }
+.pr-cal-label { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; color: var(--grey-500, #888); }
+.pr-cal-opt { display: flex; align-items: center; gap: 7px; font-size: 0.82rem; color: var(--brand-black, #1a1518); cursor: pointer; }
+.pr-cal-opt input[type="radio"] { accent-color: var(--brand-purple, #713364); }
+
+.pr-actions { display: flex; align-items: center; gap: 10px; margin-top: 2px; }
+.pr-pub { display: inline-flex; align-items: center; gap: 6px; }
+.pr-dis { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
+.pr-note { font-size: 0.74rem; color: var(--grey-500, #888); font-style: italic; }
+
+
+/* Segmented control for a flag the pipeline already decided — pre-selected to its answer, so the
+   reviewer only clicks when they DISAGREE. */
+.pr-seg { display: inline-flex; gap: 0; border: 1px solid var(--grey-200, #e6e1e4); border-radius: 8px; overflow: hidden; }
+.pr-seg-btn {
+    padding: 6px 14px;
+    border: none;
+    background: white;
+    color: var(--grey-600, #555);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.pr-seg-btn + .pr-seg-btn { border-left: 1px solid var(--grey-200, #e6e1e4); }
+.pr-seg-btn.active { background: var(--brand-purple, #713364); color: white; }
+.pr-flag-important { color: #8B6914; background: #8B691412; }
+
+
+/* A date disagreement between the email and the academic calendar. Amber, not red: nothing is broken,
+   two sources simply differ and a human has to say which is right. */
+.pr-rc-conflict {
+    color: #92400e;
+    background: #b453091a;
+    border-color: #b4530955;
+    font-weight: 800;
+}

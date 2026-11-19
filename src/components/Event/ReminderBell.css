@@ -1,0 +1,76 @@
+/* The bell + its timing picker. Lives on the event card and the notice card. */
+
+.reminder-bell-wrap {
+    position: relative;
+    display: inline-flex;
+}
+
+/* Anchored to the bell and right-aligned, because the bell sits at the right edge of a card —
+   opening leftwards keeps the panel on screen on a narrow phone. */
+.reminder-bell-pop {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    min-width: 190px;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    cursor: default;
+}
+
+.reminder-bell-pop-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.reminder-bell-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.reminder-chip {
+    padding: 5px 10px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--bg-secondary);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Selected carries a border and a weight change as well as colour — a filled pill and an unfilled
+   one that differ only in hue are indistinguishable to a lot of people. */
+.reminder-chip.is-on {
+    background: var(--brand-purple);
+    border-color: var(--brand-purple);
+    color: var(--brand-white, #fff);
+}
+
+.reminder-chip:disabled { opacity: 0.6; cursor: default; }
+
+.reminder-chip:focus-visible {
+    outline: 2px solid var(--brand-purple);
+    outline-offset: 2px;
+}
+
+.reminder-bell-off {
+    align-self: flex-start;
+    padding: 2px 0;
+    border: none;
+    background: none;
+    color: var(--red);
+    font-size: 0.76rem;
+    cursor: pointer;
+}
+
+.reminder-bell-off:hover { text-decoration: underline; }
+.reminder-bell-off:disabled { opacity: 0.6; cursor: default; }

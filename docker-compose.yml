@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./temp_backend
+      dockerfile: Dockerfile
+    container_name: campus_dashboard_backend
+    env_file:
+      - ./temp_backend/.env          # backend runtime vars incl. NODE_ENV — the ENV FILE defines the
+                                      # environment (dev file → development, prod file → production), so one
+                                      # compose serves both. Prod: a locked file on the EC2 / injected from SSM.
+      # git SHA of the running build, written by deploy.sh. A FILE rather than "${SENTRY_RELEASE:-}",
+      # because an interpolated variable is part of compose's config hash: a manual `docker compose
+      # up -d` from a shell without it would compute different config, silently recreate the
+      # container, and strip the release off the running app. Optional so local dev needs no file.
+      - path: ./.release.env
+        required: false
+    ports:
+      - "8081:8081"
+    restart: unless-stopped           # auto-recover a CRASH (exited container)
+    # Hard memory ceiling. The EC2 is a t3.micro: 916MB total, ~250MB of it host OS + docker + nginx,
+    # and NO SWAP. Without a limit the container can allocate until the kernel's OOM killer fires, and
+    # what it kills is whichever process looks worst at that moment — often nginx or dockerd, i.e. the
+    # whole box goes down and nothing restarts it. `restart: unless-stopped` and autoheal only help if
+    # the CONTAINER is what dies. This turns a host-wide outage into a container restart.
+    #
+    # 512m is ~2.7x measured steady state (192MB) and fits the worst upload the pixel guard in
+    # routes/upload.js still admits (a 268MP image decodes at ~219MB peak). Raise this only alongside
+    # the host budget above — 600m+ leaves the OS under 60MB of headroom.
+    mem_limit: 512m
+    # Cap container logs. Docker's json-file driver is UNBOUNDED by default — a chatty container
+    # fills the root volume, and when it does everything stops at once: the app can't write, Postgres
+    # connections fail, and Docker itself can't start containers. It's the most common way a small
+    # instance dies, and it happens at 3am with no warning.
+    #
+    # This is a disk safety valve, NOT a retention policy: 30MB is a few days of buffer. Searchable
+    # history lives in CloudWatch (see the awslogs agent), which also survives the box being replaced.
+    # Deliberately keeping json-file rather than the awslogs driver, because the driver REPLACES it
+    # and `docker logs` stops working on the instance — a bad trade when you're debugging live.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    labels:
+      autoheal: "true"                # autoheal watches this → auto-restart if it goes UNHEALTHY (a hang)
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:8081/health',r=>process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 40s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # No build args needed any more. The API base is pinned to /api in src/services/api.js and
+      # nginx.conf proxies it to the backend container, so the frontend is same-origin here exactly
+      # as it is behind CloudFront. Image uploads go to our own S3 via the backend, so the old
+      # VITE_IMGBB_API_KEY is gone too — it only ever ended up readable in the public JS bundle.
+    container_name: campus_dashboard_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    # Log rotation — see the note on `backend`. Disk safety valve, not retention.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # NOTE: local all-in-one convenience only. In PROD the frontend is static on S3 + CloudFront,
+    # NOT a container — on the EC2 we run just `backend` + `autoheal`.
+
+  # Watches for UNHEALTHY containers (labeled autoheal=true) and restarts them → recovers a HUNG app,
+  # which restart:unless-stopped alone can't (it only handles crashes/exits). Needs the docker socket.
+  autoheal:
+    image: willfarrell/autoheal:latest
+    container_name: campus_autoheal
+    restart: unless-stopped
+    # Log rotation — see the note on `backend`. Disk safety valve, not retention.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    environment:
+      AUTOHEAL_CONTAINER_LABEL: autoheal
+      AUTOHEAL_INTERVAL: 15
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,124 @@
+.notice-detail {
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.nd-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: white;
+    border-bottom: 1px solid var(--grey-100);
+    padding: 14px 16px;
+}
+.nd-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--brand-black);
+    font-family: 'Roboto', sans-serif;
+}
+
+.nd-state { padding: 48px 16px; color: var(--grey-500); text-align: center; }
+
+.nd-body-wrap { flex: 1; padding: 18px 16px 96px; }
+
+.nd-tags { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+
+.nd-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--brand-black);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+    overflow-wrap: break-word;
+}
+
+.nd-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: var(--grey-600);
+    margin-bottom: 16px;
+}
+.nd-meta-label { display: inline-block; width: 72px; color: var(--grey-500); font-weight: 700; }
+
+.nd-deadline {
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+.nd-deadline.dl-grey  { background: var(--brand-purple-pale); color: var(--brand-purple); }
+.nd-deadline.dl-amber { background: #fff7ed; color: #b45309; }
+.nd-deadline.dl-red   { background: #fef2f2; color: #c62828; }
+.nd-deadline.dl-past  { background: var(--grey-50); color: var(--grey-500); }
+
+.nd-section-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--grey-500);
+    margin-bottom: 12px;
+}
+.nd-points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.nd-points li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--brand-black);
+    overflow-wrap: break-word;
+}
+.nd-points li::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-purple);
+}
+
+.nd-cta {
+    display: block;
+    text-align: center;
+    background: var(--brand-purple);
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 14px;
+    border-radius: 14px;
+    margin-top: 28px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* A URL that appears mid-sentence in a notice body. Shown as its host rather than the full URL —
+   readable inline, still clickable, and never the wall of query-string that a raw link would be. */
+.nd-inline-link {
+    color: var(--brand-purple, #6d28d9);
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.nd-inline-link:hover { text-decoration: underline; }

@@ -1,0 +1,140 @@
+[
+  {
+    "match": "स्पंदन",
+    "kind": "notice",
+    "priority": "general",
+    "is_external": false
+  },
+  {
+    "match": "Emerging Technologies",
+    "kind": "competition",
+    "priority": "general",
+    "is_external": false
+  },
+  {
+    "match": "Aerothon",
+    "kind": "competition",
+    "priority": "general",
+    "is_external": true
+  },
+  {
+    "match": "Integral Cup",
+    "kind": "competition",
+    "priority": "general",
+    "is_external": true
+  },
+  {
+    "match": "Essay Writing",
+    "kind": "competition",
+    "priority": "general",
+    "is_external": true
+  },
+  {
+    "match": "Kalpana Chawla",
+    "kind": "scholarship",
+    "priority": "general",
+    "is_external": true
+  },
+  {
+    "match": "Vidyalakshmi",
+    "kind": "scholarship",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "NSP",
+    "kind": "scholarship",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Financial Assistance",
+    "kind": "scholarship",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Academic Registration",
+    "kind": "registration",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Fee Payment",
+    "kind": "fee",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Academic Calendar",
+    "kind": "notice",
+    "priority": "general",
+    "is_external": false
+  },
+  {
+    "match": "swimming pool",
+    "kind": "facility",
+    "priority": "general",
+    "is_external": false
+  },
+  {
+    "match": "football field",
+    "kind": "facility",
+    "priority": "general",
+    "is_external": false
+  },
+  {
+    "match": "NSS",
+    "kind": "recruitment",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Tinkering Lab",
+    "kind": "recruitment",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Sports PoR",
+    "kind": "recruitment",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Finlatics",
+    "kind": "recruitment",
+    "priority": "general",
+    "is_external": true
+  },
+  {
+    "match": "SiB Fellowship",
+    "kind": "scholarship",
+    "priority": "general",
+    "is_external": true
+  },
+  {
+    "match": "Samkhya",
+    "kind": "registration",
+    "priority": "general",
+    "is_external": false
+  },
+  {
+    "match": "Pragyotsav",
+    "kind": "recruitment",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Various Scholarships",
+    "kind": "scholarship",
+    "priority": "important",
+    "is_external": false
+  },
+  {
+    "match": "Mock Interview",
+    "kind": "registration",
+    "priority": "general",
+    "is_external": false
+  }
+]

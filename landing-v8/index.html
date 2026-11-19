@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>IITR Campus Dashboard — one feed for every event at IIT Roorkee</title>
+<meta name="description" content="Thomso, Cognizance, club workshops, guest lectures and registration deadlines, in one feed sorted by the clubs you follow. Free with your Channel-i login.">
+<meta name="theme-color" content="#f4eede">
+<!-- This page is light-only by design. Without an explicit color-scheme, a browser is free to
+     apply its own auto-dark treatment (Chrome ships exactly that behind a flag, on by default in
+     some builds) and algorithmically repaint the cream paper — which is why the palette can look
+     correct on one machine and washed out or grey on another running the same build. -->
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://campus-dashboard.iitr.ac.in/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="IITR Campus Dashboard">
+<meta property="og:title" content="Campus Dashboard — one feed for every event at IIT Roorkee">
+<meta property="og:description" content="Campus runs on paper and WhatsApp. This collects all of it into one feed.">
+<meta property="og:url" content="https://campus-dashboard.iitr.ac.in/">
+<!-- New filename, not a new copy of og-image.png: Facebook and WhatsApp cache
+     preview images by URL and are close to impossible to purge, so the old
+     artwork would keep appearing on every link already shared. -->
+<meta property="og:image" content="https://campus-dashboard.iitr.ac.in/assets/img/og-image-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Campus Dashboard — one feed for every event at IIT Roorkee">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://campus-dashboard.iitr.ac.in/assets/img/og-image-v2.png">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Spectral:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=7">
+<script type="importmap">
+{"imports":{"three":"/assets/vendor/three/three.module.js","three/addons/":"/assets/vendor/three/addons/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebSite","@id":"https://campus-dashboard.iitr.ac.in/#website",
+ "url":"https://campus-dashboard.iitr.ac.in/","name":"IITR Campus Dashboard",
+ "alternateName":["Campus Dashboard","IIT Roorkee Campus Dashboard"],
+ "description":"One feed for every event at IIT Roorkee.",
+ "inLanguage":"en-IN","publisher":{"@id":"https://campus-dashboard.iitr.ac.in/#org"}},
+{"@type":"Organization","@id":"https://campus-dashboard.iitr.ac.in/#org",
+ "name":"Tinkering Labs, IIT Roorkee","url":"https://campus-dashboard.iitr.ac.in/",
+ "parentOrganization":{"@type":"CollegeOrUniversity","name":"Indian Institute of Technology Roorkee","url":"https://www.iitr.ac.in/"}},
+{"@type":"SoftwareApplication","@id":"https://campus-dashboard.iitr.ac.in/#app",
+ "name":"IITR Campus Dashboard","applicationCategory":"BrowserApplication",
+ "operatingSystem":"Web, Android, iOS","url":"https://campus-dashboard.iitr.ac.in/app/",
+ "description":"Thomso, Cognizance, club workshops, guest lectures and registration deadlines, in one feed sorted by the clubs you follow.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},
+ "isAccessibleForFree":true,
+ "publisher":{"@id":"https://campus-dashboard.iitr.ac.in/#org"},
+ "audience":{"@type":"EducationalAudience","educationalRole":"student",
+  "audienceType":"Students of IIT Roorkee"}}
+]}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<canvas id="stage" aria-hidden="true"></canvas>
+
+
+<header class="mast" id="mast">
+  <div class="wrap mast-in">
+    <a href="#" class="wordmark"><img src="assets/img/campus-logo.svg" alt="" width="23" height="26">Campus Dashboard</a>
+    <a class="cta" href="/app/">Open Dashboard</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══ 1 · open on the product ═══ -->
+<section class="wrap duo hero">
+  <div class="copy">
+    <!-- The name, then the promise. The headline stays the value proposition —
+         that is what a first-time visitor needs in the few seconds they give
+         it — but the product had no name anywhere above the small masthead. -->
+    <p class="hero-name up">Campus Dashboard</p>
+    <h1 class="up">One feed for every event at IIT&nbsp;Roorkee.</h1>
+    <p class="lede up d1">Thomso, Cognizance, club workshops, guest lectures and registration deadlines. Posted by the people running them, sorted by the clubs you actually follow.</p>
+    <div class="actions up d2">
+      <a class="cta cta-lg" href="/app/">Open Dashboard</a>
+      <a class="cta cta-lg cta-ghost" href="#feed">See what's inside</a>
+    </div>
+    <p class="fine note up d2">Free with your Channel-i login. Works in a browser or on your home screen.</p>
+  </div>
+  <div class="shot up d1">
+    <div class="device">
+      <div class="device-screen">
+        <canvas class="app-shot" data-mode="feed" width="560" height="1215" role="img" aria-label="The event feed, scrolling"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ club rail ═══ -->
+<section class="rail" aria-label="Groups on campus">
+  <div class="rail-row" id="railRow">
+    <span>Tinkering Lab</span><span>SDS Labs</span><span>Information Management Group</span>
+    <span>Models and Robotics Section</span><span>Robocon</span><span>Thomso</span>
+    <span>Cognizance</span><span>Music Section</span><span>E Cell</span>
+    <span>NSS IIT Roorkee</span><span>SocBiz</span><span>Watch Out IITR</span>
+    <span>Institute Sports Council</span>
+  </div>
+</section>
+
+<!-- ═══ 2 · the assembly, as ONE beat ═══ -->
+<section class="beat" id="beat">
+  <div class="beat-pin wrap">
+    <div class="copy">
+      <span class="tag">Right now</span>
+      <h2>The same four events, told to you six different ways.</h2>
+      <p class="lede">A forward of a forward. A story that expired overnight. A poster you walked past on Tuesday. A form that closed on Friday. Keep scrolling and watch them collapse into one line each.</p>
+    </div>
+    <div class="beat-stage">
+      <div class="scrap" data-dx="-232" data-dy="-176" data-rot="-9"><b>WhatsApp · Hostel grp</b><span>Cognizance '26 Hackathon</span></div>
+      <div class="scrap" data-dx="228" data-dy="-132" data-rot="8"><b>Institute mail</b><span>Fwd: Fwd: Cognizance registration</span></div>
+      <div class="scrap" data-dx="-250" data-dy="46" data-rot="6"><b>Instagram story</b><span>Thomso Cultural Night</span></div>
+      <div class="scrap shut" data-dx="236" data-dy="92" data-rot="-11"><b>Google Form</b><span>Registrations closed</span></div>
+      <div class="scrap" data-dx="-186" data-dy="222" data-rot="12"><b>Poster · Rajendra Bhawan</b><span>Robotics Club open house</span></div>
+
+      <div class="device">
+      <div class="device-screen">
+        <canvas class="app-shot" data-mode="feed" width="560" height="1215" role="img" aria-label="The event feed, scrolling"></canvas>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3 · the curtain ═══ -->
+<section class="curtain-zone">
+  <div class="curtain-pin">
+    <div class="curtain" id="curtain">
+      <div class="curtain-tag" id="curtainTag"><b>One<br>feed</b><span>for all of it</span></div>
+      <div class="curtain-body" id="curtainBody">
+        <div class="wrap">
+          <h2>Everything on campus, collected.</h2>
+          <p class="lede">One login. Every club, every fest, every deadline, and the academic calendar underneath all of it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4 · feed + live filters ═══ -->
+<section class="wrap duo" id="feed">
+  <div class="copy">
+    <span class="tag up">The feed</span>
+    <h2 class="up">Ranked by the clubs you follow.</h2>
+    <p class="lede up d1">Not by whoever posted most recently. Every event carries its club and its category, so the feed can be filtered down to the parts of campus you actually turn up to.</p>
+  </div>
+  <div class="shot up d1">
+    <div class="device">
+      <div class="device-screen">
+          <canvas class="app-shot" data-mode="feed" width="560" height="1215" role="img" aria-label="The event feed, scrolling"></canvas>
+        </div>
+    </div>
+  </div>
+</section>
+<div class="sep"></div>
+
+<!-- ═══ 5 · calendar ═══ -->
+<section class="wrap duo flip" id="calendar">
+  <div class="copy">
+    <span class="tag up">The calendar</span>
+    <h2 class="up">Straight from the institute's calendar.</h2>
+    <p class="lede up d1">It begins with the academic calendar the institute publishes, and lays the events over it. The month gives you the holidays and the exam weeks at a glance, and tapping a day opens everything on it.</p>
+  </div>
+  <div class="shot up d1">
+    <div class="device">
+      <div class="device-screen">
+          <canvas class="app-shot" data-mode="cal" width="560" height="1215" role="img" aria-label="The calendar, switching days"></canvas>
+        </div>
+    </div>
+  </div>
+</section>
+<div class="sep"></div>
+
+<!-- ═══ 6 · map ═══ -->
+<section class="wrap duo" id="clubs">
+  <div class="copy">
+    <span class="tag up">Club preferences</span>
+    <h2 class="up">You choose whose events reach you.</h2>
+    <p class="lede up d1">Every society on campus is on by default. Uncheck the ones you do not care about and their events stop appearing in your feed. Change it whenever you like.</p>
+  </div>
+  <div class="shot up d1">
+    <div class="device">
+      <div class="device-screen">
+          <canvas class="app-shot" data-mode="clubs" width="560" height="1215" role="img" aria-label="Club preferences being toggled"></canvas>
+        </div>
+    </div>
+  </div>
+</section>
+<div class="sep"></div>
+
+<!-- ═══ 7 · notifications ═══ -->
+<section class="wrap duo flip" id="reminders">
+  <div class="copy">
+    <span class="tag up">Notifications</span>
+    <h2 class="up">It remembers so you don't.</h2>
+    <p class="lede up d1">An inbox keeps everything that has already fired: a talk starting within the hour, three new notices from your clubs, a todo due today. Tap one and it opens the thing itself.</p>
+    <p class="lede up d2">Next to it, the reminder hub — your own timing on every event and every notice deadline you are watching. A day before applications close, an hour before a talk. It arrives with the app shut, and nothing else does.</p>
+  </div>
+  <div class="shot up d1">
+    <div class="device">
+      <div class="device-screen">
+          <canvas class="app-shot" data-mode="notifs" width="560" height="1215" role="img" aria-label="The notification inbox and the reminder hub"></canvas>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="sep"></div>
+
+<!-- ═══ 8 · explore it for real ═══ -->
+<section class="duo explore" id="explore">
+ <div class="explore-pin wrap">
+  <div class="copy">
+    <span class="tag up">Try it</span>
+    <h2 class="up">Try the whole thing.</h2>
+    <p class="lede up d1">This is the actual app, running right here with no login. Filter the feed, search it, set a reminder and pick your offsets, move through the calendar, add a todo, follow and mute clubs. Everything works.</p>
+    <p class="fine up d2" style="margin-top:1.25rem">Then open the real thing with your Channel-i login.</p>
+    <div class="actions up d2" style="margin-top:1.25rem">
+      <a class="cta cta-lg" href="/app/">Open Dashboard</a>
+    </div>
+  </div>
+  <div class="shot up d1">
+    <div class="device live" id="live">
+      <div class="device-screen">
+        <!-- This is the actual app, built from src/, running with its network
+             layer stubbed in the browser. Every control is the real one. -->
+        <iframe id="demoFrame" class="demo-frame" src="demo/index.html?v=2" title="Try Campus Dashboard"
+                loading="lazy" referrerpolicy="no-referrer"></iframe>
+        <noscript><img class="app-shot" src="assets/img/app-feed-body.webp" alt="The event feed" width="560" height="3254"></noscript>
+      </div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- ═══ 9 · close ═══ -->
+<section class="close">
+  <div class="wrap">
+    <h2>Stop missing out on stuff.</h2>
+    <p class="lede">One feed for every event at IIT Roorkee. Free for anyone with a Channel-i login, and about ninety seconds to set up.</p>
+    <div style="margin-top:2rem"><a class="cta cta-lg cta-paper" href="/app/">Open Dashboard</a></div>
+    <div class="colophon">
+      <span>&copy; <span id="yr">2026</span> Tinkering Labs, IIT Roorkee</span>
+      <img src="assets/img/logo-tinkering.webp" alt="Tinkering Labs" width="27" height="16">
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="spot" id="spot" aria-hidden="true"><p class="spot-say">Try the app — right here, right now.</p></div>
+<script src="assets/js/main.js?v=5"></script>
+<script type="module" src="assets/js/screens.js?v=5"></script>
+<script type="module" src="assets/js/guide.js?v=5"></script>
+<script type="module" src="assets/js/scene.js?v=5"></script>
+</body>
+</html>

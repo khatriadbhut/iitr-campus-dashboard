@@ -1,0 +1,21 @@
+# Campus Dashboard — https://campus-dashboard.iitr.ac.in
+#
+# Deliberately permissive. Two things are kept out of the index, and NEITHER is done
+# with Disallow, because a disallowed URL can still be indexed (bare, with no snippet)
+# when something links to it — and Google can never see a noindex on a page it is
+# forbidden to fetch. Both are therefore crawlable and carry their own directive:
+#
+#   /demo/*  -> <meta name="robots" content="noindex"> in demo/index.html.
+#              It is a second copy of the React app with mocked API responses, linked
+#              from the landing page's iframe, so a crawler WILL find it.
+#   /app/*   -> <link rel="canonical" href=".../app/"> in the app shell.
+#              Every route under /app/ serves that same shell, so without the canonical
+#              each one looks like a separate near-duplicate page.
+
+User-agent: *
+Allow: /
+
+# Not a document tree — crawling it only produces 401s and wastes crawl budget.
+Disallow: /api/
+
+Sitemap: https://campus-dashboard.iitr.ac.in/sitemap.xml

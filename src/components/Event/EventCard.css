@@ -1,0 +1,378 @@
+.event-card-new {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--grey-100);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.event-card-new:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(113, 51, 100, 0.15);
+}
+
+.event-card-new:active {
+    transform: scale(0.98);
+}
+
+/* Banner */
+.event-card-banner {
+    height: 140px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 12px;
+}
+
+.event-card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.academic-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.event-share-btn,
+.event-reminder-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.22);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+}
+
+.event-share-btn:hover,
+.event-reminder-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.34);
+}
+
+.event-reminder-btn.enabled {
+    background: rgba(255, 215, 0, 0.92);
+    border-color: rgba(255, 215, 0, 0.95);
+    color: #3e2550;
+}
+
+.event-reminder-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.event-reminder-btn--academic {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    z-index: 3;
+    border-color: var(--grey-200);
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--grey-500);
+}
+
+.event-share-btn--inline,
+.event-reminder-btn--inline {
+    position: static;
+    width: 26px;
+    height: 26px;
+    border-color: var(--grey-200);
+    background: white;
+    color: var(--grey-500);
+}
+
+.event-share-btn--inline {
+    border-color: var(--grey-200);
+}
+
+.event-reminder-btn--inline.enabled {
+    color: #3e2550;
+    border-color: rgba(255, 215, 0, 0.95);
+}
+
+.event-card-footer {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.event-share-btn--bottom {
+    position: static;
+    width: auto;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid var(--grey-200);
+    background: white;
+    color: var(--brand-purple);
+    gap: 6px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.event-share-btn--icon {
+    width: 30px;
+    min-width: 30px;
+    padding: 0;
+    gap: 0;
+}
+
+.event-share-btn--bottom:hover {
+    background: var(--brand-purple-pale);
+    border-color: rgba(113, 51, 100, 0.35);
+}
+
+.event-share-btn--whatsapp {
+    width: 30px;
+    min-width: 30px;
+    padding: 0;
+    color: #0f9d58;
+    border-color: rgba(15, 157, 88, 0.35);
+    background: rgba(15, 157, 88, 0.08);
+}
+
+.event-share-btn--whatsapp:hover {
+    background: rgba(15, 157, 88, 0.16);
+    border-color: rgba(15, 157, 88, 0.45);
+}
+
+.event-category-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+}
+
+/* Body */
+.event-card-body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.event-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--brand-black);
+    margin: 0;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Lifecycle badge — an email update cancelled/rescheduled this event */
+.event-status-badge {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    padding: 1px 7px;
+    border-radius: 6px;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+.event-status-badge--cancelled { background: #fdecea; color: #c62828; }
+.event-status-badge--rescheduled { background: #fff3e0; color: #d84315; }
+
+/* Club Row */
+.event-card-club-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-club-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--brand-purple);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.event-club-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--brand-purple);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Meta Row */
+.event-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.event-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.78rem;
+    color: var(--grey-500);
+    font-weight: 500;
+}
+
+.event-meta-item svg {
+    flex-shrink: 0;
+}
+
+/* RSVP Button */
+.event-rsvp-btn {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--brand-purple);
+    color: white;
+    border: none;
+    border-radius: 22px;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    margin-top: 6px;
+}
+
+.event-rsvp-btn:hover {
+    background: var(--brand-purple-dark);
+    transform: translateY(-1px);
+}
+
+.event-rsvp-btn.notified {
+    background: var(--grey-100);
+    color: var(--grey-600);
+}
+
+.event-rsvp-btn.notified:hover {
+    background: #fce4ec;
+    color: #c62828;
+}
+
+/* Academic/Calendar Specific Card Styling */
+.academic-card {
+    cursor: default !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.academic-card:hover {
+    transform: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.academic-card .event-card-body {
+    padding: 12px 14px;
+    gap: 6px;
+}
+
+.academic-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+/* Keeps the category badge and any flags together at the left, so the header's space-between only
+   separates the badge GROUP from the action icons. */
+.academic-badge-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    min-width: 0;
+}
+
+.academic-badge {
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.academic-card .event-card-title {
+    font-size: 0.95rem;
+}
+
+/* Todo Event Card Specifics (Shiny) */
+.todo-event-card {
+    border: 2px solid #FFD700;
+    box-shadow: 0 4px 18px rgba(255, 215, 0, 0.15);
+    background: linear-gradient(180deg, #fffcf0 0%, #ffffff 100%);
+}
+
+.todo-event-card:hover {
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
+    border-color: #ffc107;
+}
+
+.todo-event-card .academic-badge {
+    background: #FFD700 !important;
+    color: #4a1d3f !important;
+}
+
+.todo-event-card .event-club-avatar {
+    background: #FFD700 !important;
+    color: #4a1d3f !important;
+}
+/* An event that is on the user's todo list.
+   The gold rule alone was not enough: it is a hint with no key, and a first-time reader has no way
+   to learn what it means. It now runs ALONGSIDE an explicit "ON MY LIST" badge — the rule gives the
+   card a scannable edge in a long feed, the badge says what it is. */
+.event-card-new.on-todo-list {
+    border-left: 3px solid #FFD700;
+}
+
+/* Gold, matching the rule and the Personal/Todo colour used elsewhere. Dark text rather than white:
+   #FFD700 is a light hue, so white on it is roughly 1.6:1 and unreadable at this size and weight,
+   while the near-black below is about 12:1. Works as both .academic-badge (outlined, on slim cards)
+   and .event-category-badge (filled, on full cards) — the shared declarations do the work. */
+.todo-flag-badge {
+    background: #FFD700 !important;
+    color: #3d2b00 !important;
+    border-color: #e6c200 !important;
+}

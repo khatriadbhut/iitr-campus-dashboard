@@ -1,0 +1,64 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dev-dist
+dist-ssr
+# The Android build output. NOT covered by `dist` above — gitignore matches the whole path
+# component, so `dist` does not match `dist-mobile`, and 9.6MB of build artefacts were one
+# `git add -A` away from the history.
+dist-mobile
+*.local
+
+# Playwright MCP's scratch directory (screenshots, traces) — regenerated, never reviewed
+.playwright-mcp/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+.env.*
+!.env.example
+
+# Ingested event posters (runtime attachments, ephemeral)
+temp_backend/uploads/
+
+# Email-ingestion: real inbox content & measurement dumps — NEVER commit (privacy)
+temp_backend/services/eventIngestion/__tests__/realCorpus.json
+temp_backend/services/eventIngestion/__tests__/calendarScan.out.txt
+temp_backend/services/eventIngestion/__tests__/agreement.jsonl
+
+docker-compose.override.yml
+
+# written by deploy.sh on the EC2 (git SHA of the running build)
+.release.env
+.last-deployed-sha
+
+# Generated documents. Each is rendered from the .html source beside it
+# (headless Chrome --print-to-pdf), so the source is the thing worth versioning
+# — not a ~600KB binary that changes wholesale on every palette tweak.
+# NOTE: this deliberately does not cover docs/academic calender samples/,
+# which are input fixtures for the calendar parser and ARE tracked.
+#
+# The developer handbook is the OTHER deliberate exception: docs/IITR-Campus-
+# Dashboard-Developer-Handbook.pdf IS tracked, because it is the artefact a new
+# developer is pointed at from the README and it should be readable straight from
+# GitHub without a build step. Its source is docs/ONBOARDING.md — edit that, then
+# run ./scripts/build-handbook.sh. It is ~4.5MB and changes wholesale on every
+# rebuild, so regenerate it deliberately (per release, not per typo fix).
+docs/design/*.pdf
+docs/demo/*.pdf
